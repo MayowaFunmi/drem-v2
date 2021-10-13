@@ -1,0 +1,112 @@
+{% extends 'users/base.html' %}
+
+{% load static %}
+{% block title %}Sign Up Form{% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/bootstrap.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/font-awesome.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/contact.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/contact_responsive.css' %}"/>
+{% endblock style %}
+
+
+{% block content %}
+    <div class="new_page container">
+        <div class="contact_form_section">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="contact_title">Sign Up Form</div>
+                        <div class="message">
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <h3 style="text-align: center;">{{ message }}</h3>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <form class="contact_form" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="contact_title" style="margin-bottom: 10px; margin-top: 10px;">Your Bio Data:</div>
+                                    <input type="text" class="contact_input contacts_input_name" placeholder="Enter Your Name" name="username" required><br>
+                                    <input type="email" class="contact_input contacts_input_name" placeholder="Enter Your Email Address" name="email" required><br>
+                                    <input type="text" class="contact_input contacts_input_name" placeholder="Enter Your First Name" name="first_name" required><br>
+                                    <input type="text" class="contact_input contacts_input_name" placeholder="Enter Your Surname" name="last_name" required><br>
+                                    <input type="text" class="contact_input contacts_input_name" placeholder="Enter Your Middle Name" name="middle_name" required><br>
+                                    <h6>Select Your Gender Below:</h6>
+                                    <select class="contact_input" name="gender">
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+                                    <input type="text" class="contact_input contacts_input_name" placeholder="Enter Your Address" name="address" required><br>
+                                    <input type="text" class="contact_input contacts_input_name" placeholder="Enter Your Phone Number" name="phone_number" required><br>
+                                    <h6>Choose Your Date Of Birth Below:</h6>
+                                    <input type="date" class="contact_input contacts_input_name" name="date_of_birth" required><br>
+                                    <h6>Your Personal Photo Below:</h6>
+                                    <input type="file" class="contact_input contacts_input_name" name="photo" required><br>
+                                    <input type="password" class="contact_input contacts_input_name" placeholder="Enter Your Password" name="password"  id="password" required><br>
+                                    <span class="field-icon" onclick="showPassword()">
+                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                    </span>
+
+                                    <input type="password" class="contact_input contacts_input_name" placeholder="Confirm Your Password" name="password2" id="password2" required><br>
+                                    <span class="field-icon" onclick="showPassword2()">
+                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                    </span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="contact_title" style="margin-bottom: 10px; margin-top: 10px;">About Your Spiritual Life:</div>
+                                    <h6>Are You Born Again?:</h6>
+                                    <select class="contact_input" name="born_again">
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                    <input type="text" class="contact_input contacts_input_name" placeholder="Name of your church" name="church_name" required><br>
+                                    <h6>What is your relationship status:</h6>
+                                    <select class="contact_input" name="marital_status">
+                                        <option value="Single">Single</option>
+                                        <option value="Married">Married</option>
+                                        <option value="In A Relationship">In A Relationship</option>
+                                    </select>
+                                    <textarea id="contact_text_area" placeholder="...What is your favourite bible verse?" class="contact_text" name="favourite_bible_verse"></textarea>
+                                    <textarea placeholder="...Tell us something more about yourself" class="contact_text" name="about_me"></textarea>
+                                </div>
+                            </div>
+                            <button class="contact_button trans_200">Submit</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/contact/easing.js' %}"></script>
+<script src="{% static 'js/contact/plugin-parallax.js' %}"></script>
+<script src="{% static 'js/contact/contact_custom.js' %}"></script>
+<script>
+    function showPassword() {
+    var x = document.getElementById('password');
+    if (x.type === 'password') {
+        x.type = 'text';
+    } else {
+        x.type = 'password'
+    }
+};
+
+function showPassword2() {
+    var x = document.getElementById('password2');
+    if (x.type === 'password') {
+        x.type = 'text';
+    } else {
+        x.type = 'password'
+    }
+}
+</script>
+{% endblock script %}

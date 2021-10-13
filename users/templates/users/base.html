@@ -1,0 +1,376 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{% block title %}Welcome To DREM International{% endblock title %}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Destiny Rescue Mission (DREM) International Website">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base/bootstrap.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base/bootstrap2.css' %}"/>
+    {% block style %}
+    {% endblock style %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" /
+</head>
+
+<body>
+<div class="super_container">
+
+    <header class="header">
+
+        <div class="top_bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col top_bar_content d-flex flex-row align-items-center justify-content-start">
+                        <div class="event_timer">
+                            <span>Next Big Event:</span>
+                            <ul class="timer">
+                                <li class="d-inline-flex">
+                                    <div id="day" class="timer_num">03</div>
+                                    <div class="timer_unit">Days</div>
+                                </li>
+                                <li class="d-inline-flex">
+                                    <div id="hour" class="timer_num">15</div>
+                                    <div class="timer_unit">Hours</div>
+                                </li>
+                                <li class="d-inline-flex">
+                                    <div id="minute" class="timer_num">45</div>
+                                    <div class="timer_unit">Minutes</div>
+                                </li>
+                                <li class="d-inline-flex">
+                                    <div id="second" class="timer_num">23</div>
+                                    <div class="timer_unit">Seconds</div>
+                                </li>
+                                <li class="d-inline-flex">
+                                    {% if user.is_authenticated %}
+                                        <div>You are logged in as <strong>{{ user.username }}</strong></div>
+                                    {% else %}
+                                        <div>You are logged out!!!</div>
+                                    {% endif %}
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="donations_button ml-auto">
+                            <a href="#">Send Donations</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="header_container">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+
+                            <div class="logo_container">
+                                <div class="logo">
+                                    <a href="#">
+                                        <span>
+                                            <img src="{% static 'img/drem_logo.jpg' %}" alt="">
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="header_nav_container ml-auto">
+                                <nav class="main_nav">
+                                    <ul>
+                                        <li class="active"><a href="{% url 'base' %}">Home</a></li>
+                                        <li><a href="#">Blog</a></li>
+                                        <li><a href="#">Bible Institute</a></li>
+                                        <li><a href="#">About</a></li>
+                                        <li><a href="{% url 'users:contact_us' %}">Contact Us</a></li>
+                                        {% if user.is_authenticated %}
+                                            <li><a href="{% url 'users:user_profile' %}">Profile</a></li>
+                                            <li><a href="#">Change Password</a></li>
+                                            <li><a href="{% url 'users:logout' %}">Logout</a></li>
+                                        {% else %}
+                                            <li><a href="{% url 'users:signup' %}">Register</a></li>
+                                            <li><a href="{% url 'users:login' %}">Login</a></li>
+                                        {% endif %}
+                                    </ul>
+                                </nav>
+                            </div>
+
+                            <div class="hamburger ml-auto">
+                                <i class="fa fa-bars" aria-hidden="true"></i>
+                            </div>
+                            <h3 id="clock"></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="menu d-flex flex-column align-items-center justify-content-center">
+        <div class="menu_content">
+            <div class="cross_1 d-flex flex-column align-items-center justify-content-center">
+                <img class="setting" src="{% static 'img/drem_logo.jpg' %}" alt="">
+            </div>
+            <nav class="menu_nav">
+                <ul>
+                    <li class="active"><a href="{% url 'base' %}">Home</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Bible Institute</a></li>
+                    <li><a href="#">About</a></li>
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'users:user_profile' %}">Profile</a></li>
+                        <li><a href="#">Change Password</a></li>
+                        <li><a href="{% url 'users:logout' %}">Logout</a></li>
+                    {% else %}
+                        <li><a href="{% url 'users:signup' %}">Register</a></li>
+                        <li><a href="{% url 'users:login' %}">Login</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+        <div class="menu_close"><i class="fa fa-times" aria-hidden="true"></i></div>
+    </div>
+    {% block content %}
+    <div class="home">
+        <div class="home_slider_container">
+            <div class="owl-carousel owl-theme home_slider">
+
+                <div class="owl-item">
+                    <div class="home_slider_background"
+                         style="background-image:url(static/img/logo1.jpg)">
+                    </div>
+                    <div class="home_slider_content text-center">
+                      <div class="cross_1 d-flex flex-column align-items-center justify-content-center" style="backgroud: none;">
+                          <img src="{% static 'img/drem_logo.jpg' %}" alt="" style="width: 100px; height: 100px; float: left; border-radius: 50%;">
+                      </div>
+                      <h2 style="color: white; font-weight: 600;">DESTINY RESCUE MISSION (DREM) INTERNATIONAL</h2>
+                      <p style="color: red; font-weight: 600">...Who so run to Christ shall be saved!!!</p>
+                    <div class="button home_slider_button"><a href="#">About Us</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- About The Convener -->
+
+<div class="intro">
+    <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="section_title_container">
+              <div class="section_image"><img src="{% static 'img/church_1.png' %}"
+                  alt=""></div>
+              <div class="section_title">
+                <h2 style="text-transform: capitalize";>...First words from the convener...</h2>
+              </div>
+              <div class="section_subtitle">Evang. O .D. A. Elijah</div>
+            </div>
+          </div>
+        </div>
+        <div class="row intro_content">
+
+          <div class="col-lg-6">
+            <div class="intro_text">
+              <p>
+                  Destiny Rescue Mission Int'l (DREM) is a ministry committed to setting captives free. (ISAIAH 61:1-7, LUKE 4:18-19).<br>
+                  One faithful afternoon, on my way to campus ( Christ Apostolic Church Theological Seminary, Lagos State), God gave me the name while on motorbike.
+                  I received the calling to be on mission for Christ, to evangelise and groom youths & young adults alike, far back 6 to 7 years ago but was more glaring in the year 2015.<br>
+                  It all started with ...
+              </p>
+              <div class="button intro_button"><a href="{% url 'users:convener' %}">Read More</a></div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="intro_image"><img src="{% static 'img/oda.jpg' %}" style="max-width: 50%; height: auto;" alt=""></div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock content %}
+
+<div class="services">
+      <div class="services_background parallax-window" data-parallax="scroll" data-image-src="{% static 'img/services.jpg' %}"
+        data-speed="0.8"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="section_title_container">
+              <div class="section_image"><img src="{% static 'img/church_2.png' %}" alt=""></div>
+              <div class="section_title">
+                <h2>Spiritual Activities</h2>
+              </div>
+              <div class="section_subtitle">God loves us all</div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="services_text text-center">
+              <p>Integer nec bibendum lacus. Suspendisse dictum enim sit amet libero malesuada feugiat. Praesent
+                malesuada congue magna at finibus. In hac habi tasse platea dictumst. Curabitur rhoncus auctor eleifend.
+                Fusce venenatis diam urna, eu pharetra arcu varius ac.</p>
+            </div>
+          </div>
+        </div>
+        <div class="row services_row">
+
+          <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="services_item text-center">
+              <div class="services_image"><img
+                  src="{% static 'img/services_1.png' %}"
+                  alt=""></div>
+              <div class="services_title"><a href="{% url 'users:testimony' %}">Testimonies</a></div>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="services_item text-center">
+              <div class="services_image"><img
+                  src="{% static 'img/services_2.png' %}"
+                  alt=""></div>
+              <div class="services_title">Believers' Forum</div>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="services_item text-center">
+              <div class="services_image"><img
+                  src="{% static 'img/services_3.png' %}"
+                  alt=""></div>
+              <div class="services_title">Perfect Law Of Liberty</div>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="services_item text-center">
+              <div class="services_image"><img
+                  src="{% static 'img/services_4.png' %}"
+                  alt=""></div>
+              <div class="services_title">Bible Quiz</div>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="services_item text-center">
+              <div class="services_image"><img
+                  src="{% static 'img/services_5.png' %}"
+                  alt=""></div>
+              <div class="services_title">Daily Devotional</div>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="services_item text-center">
+              <div class="services_image"><img
+                  src="{% static 'img/services_6.png' %}"
+                  alt=""></div>
+                <div class="services_title"><a href="{% url 'users:prayer_request' %}">Prayer Request</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-4 footer_col">
+
+                <div class="logo_container">
+                    <div class="logo">
+                        <a href="#">
+                            <span>Believe</span>
+                            <img
+                                    src="data:image/webp;base64,UklGRnABAABXRUJQVlA4IGQBAAAwCQCdASo1ADUAPm0skkWkIqGY/jQAQAbEsQBoCtdfc4wG4Y3iX9gOBU8kAC51m2WVTQgXO5fDVwZJSg7mumZ9paqemjQiJwa6WEJvBUyZTTAAAP4MX8c8Dj3cGkuNWztD8W9betp4Ml7/2ln/9Sz/+pZ/W1cLK5U+YpCnW3ncAE0fMlvvJ7/EHj7U/ud/oCDdlnKv0SLJKdNLUTJUJSZ3sHva0cyNQzO7/m4ZRuwccCuX97DOStDqqLVdQZmnx7L6CFRRecfhzqX9ISJ7n7muFR+AiR6BP8E54FfwMab0iQ6cWBb+smHDeJkeincBrz4miMY7AgGCCfpA4dphL+Tq/Xq2zOn8yizmwTI8c66yp1aQJ8pBfAKk2pYmyP72To4CjtKmXsEWCSJQicdnuYiQgUlP1gm815UKI+LlI/vn/3xSjZ4/zK/tcslrKHOqz7WqsePXh+6fforpRQJ9EiFrAAAAAA=="
+                                    alt="">
+                        </a>
+                    </div>
+                    <div class="logo_subtitle">Church template</div>
+                </div>
+                <div class="footer_social">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-4 footer_col">
+                <div class="footer_links">
+                    <div class="footer_title">Useful Links</div>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">Donations</a></li>
+                        <li><a href="sermons.html">Sermons</a></li>
+                        <li><a href="#">Causes</a></li>
+                        <li><a href="#">Quotes</a></li>
+                        <li><a href="blog.html">News</a></li>
+                        <li><a href="#">Event List</a></li>
+                        <li><a href="ministries.html">Ministries</a></li>
+                        <li><a href="#">Priests</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-3 footer_col">
+                <div class="footer_contact">
+                    <div class="footer_title">Contact Us</div>
+                    <ul>
+                        <li><span>Address: </span>1481 Creekside Lane Avila Beach, CA 93424</li>
+                        <li class="footer_contact_phone">
+                            <span>Phone: </span>
+                            <div>
+                                <div> +53 345 7953 32453</div>
+                                <div> +53 345 7557 822112</div>
+                            </div>
+                        </li>
+                        <li><span>Email: </span><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                                   data-cfemail="afd6c0daddc2cec6c3efc8c2cec6c381ccc0c2">[email&#160;protected]</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="copyright text-center">
+        Copyright &copy;
+        <script>document.write(new Date().getFullYear());</script>
+        All rights reserved | This website is designed and developed <i
+            class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://affabledigitalservices.herokapp.com" target="_blank">Akinade Mayowa</a>
+
+    </div>
+</footer>
+<script src="{% static 'js/base/jquery.min.js' %}"></script>
+<script src="{% static 'js/base/bootstrap.popper.js' %}"></script>
+<script src="{% static 'js/base/bootstrap.min.js' %}"></script>
+{% block script %}
+<script src="{% static 'js/base/owl-carousel.js' %}"></script>
+<script src="{% static 'js/base/app.js' %}"></script>
+<script src="{% static 'js/base/plugins.js' %}"></script>
+<script>eval(mod_pagespeed_w2$JNY6$Cn);</script>
+<script>eval(mod_pagespeed_OT2DLOXnSB);</script>
+<script>eval(mod_pagespeed_SvzwlsPWZP);</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-23581568-13');
+
+
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"rayId":"69b4ecd13cf66b44","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'></script>
+{% endblock script %}
+</body>
+
+</html>

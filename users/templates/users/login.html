@@ -1,0 +1,62 @@
+{% extends 'users/base.html' %}
+
+{% load static %}
+{% block title %}Login Form{% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/bootstrap.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/font-awesome.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/contact.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/contact_responsive.css' %}"/>
+{% endblock style %}
+
+
+{% block content %}
+    <div class="new_page container">
+        <div class="contact_form_section">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="contact_title">Login Form</div>
+                        <div class="message">
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <h3 style="text-align: center;">{{ message }}</h3>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <form class="contact_form" method="POST">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" class="contact_input contacts_input_name" placeholder="Enter Your Name" name="username" required><br>
+                                    <input type="password" class="contact_input contacts_input_name" placeholder="Enter Your Password" name="password"  id="password" required><br>
+                                    <span class="field-icon" onclick="showPassword()">
+                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <button class="contact_button trans_200">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/contact/easing.js' %}"></script>
+<script src="{% static 'js/contact/plugin-parallax.js' %}"></script>
+<script src="{% static 'js/contact/contact_custom.js' %}"></script>
+<script>
+    function showPassword() {
+    var x = document.getElementById('password');
+    if (x.type === 'password') {
+        x.type = 'text';
+    } else {
+        x.type = 'password'
+    }
+};
+</script>
+{% endblock script %}

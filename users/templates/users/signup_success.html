@@ -1,0 +1,62 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{% block title %}Registration Successful{% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/bootstrap.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/font-awesome.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/contact.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/contact_responsive.css' %}"/>
+{% endblock style %}
+
+
+{% block content %}
+    <div class="new_page container">
+        <div class="contact_form_section">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                                <div class="col-md-6">
+                                    <h2>
+                                        Thank You, {{ first_name }} {{ last_name }}.<br>
+                                        You Have Successfully Registered
+                                    </h2>
+                                    <div>
+                                        Below Are Your Registration Details:
+                                        <p>
+                                            Username: {{ username }}<br>
+                                            Email: {{ email }}<br>
+                                            First Name: {{ first_name }}<br>
+                                            Surname: {{ last_name }}<br>
+                                            Middle Name: {{ middle_name }}<br>
+                                            Gender: {{ gender }}<br>
+                                            Are You Born Again?: {{ born_again }}<br>
+                                            The Name Of Your Church: {{ church_name }}<br>
+                                            Marital Status: {{ marital_status }}<br>
+                                            Address: {{ address }}<br>
+                                            Phone Number: {{ phone_number }}<br>
+                                            Date Of Birth: {{ date_of_birth }}<br>
+                                            Your Favourite Bible Text: {{ favourite_bible_verse }}<br>
+                                            About You: {{ about_me }}<br>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="contact_info_image">
+                                        Photo:
+                                        <img src="{{ photo.url }}"><br>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="contact_button trans_200">
+            <p>Proceed To <a href="{% url 'users:login' %}">Login</a></p>
+        </button>
+    </div>
+{% endblock content %}

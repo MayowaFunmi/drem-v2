@@ -1,0 +1,651 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Church</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Destiny Rescue Mission (DREM) International Website">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap2.css' %}"/>
+</head>
+
+<body>
+<div class="super_container">
+
+    <header class="header">
+
+        <div class="top_bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col top_bar_content d-flex flex-row align-items-center justify-content-start">
+                        <div class="event_timer">
+                            <span>Next Big Event:</span>
+                            <ul class="timer">
+                                <li class="d-inline-flex">
+                                    <div id="day" class="timer_num">03</div>
+                                    <div class="timer_unit">Days</div>
+                                </li>
+                                <li class="d-inline-flex">
+                                    <div id="hour" class="timer_num">15</div>
+                                    <div class="timer_unit">Hours</div>
+                                </li>
+                                <li class="d-inline-flex">
+                                    <div id="minute" class="timer_num">45</div>
+                                    <div class="timer_unit">Minutes</div>
+                                </li>
+                                <li class="d-inline-flex">
+                                    <div id="second" class="timer_num">23</div>
+                                    <div class="timer_unit">Seconds</div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="donations_button ml-auto">
+                            <a href="#">Send Donations</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="header_container">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+
+                            <div class="logo_container">
+                                <div class="logo">
+                                    <a href="#">
+                                        <span>Believe</span>
+                                        <img src="{% static 'img/cross.webp' %}" alt="">
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="header_nav_container ml-auto">
+                                <nav class="main_nav">
+                                    <ul>
+                                        <li class="active"><a href="#">Home</a></li>
+                                        <li><a href="ministries.html">Ministries</a></li>
+                                        <li><a href="sermons.html">Sermons</a></li>
+                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </nav>
+                                <div class="search">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         version="1.1"
+                                         id="Capa_1" x="0px" y="0px" viewBox="0 0 56.966 56.966"
+                                         style="enable-background:new 0 0 56.966 56.966;" xml:space="preserve"
+                                         width="13px" height="14px">
+                      <path class="search_path"
+                            d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z"
+                            fill="#353535"/>
+                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="hamburger ml-auto">
+                                <i class="fa fa-bars" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header_search_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="header_search_content d-flex flex-row align-items-center justify-content-end">
+                                <form action="#" class="header_search_form">
+                                    <input type="search" class="search_input" placeholder="Search" required>
+                                    <button class="header_search_button d-flex flex-column align-items-center justify-content-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                             xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                                             id="Capa_2" x="0px" y="0px" viewBox="0 0 56.966 56.966"
+                                             style="enable-background:new 0 0 56.966 56.966;" xml:space="preserve"
+                                             width="20px"
+                                             height="20px">
+                        <path class="search_path"
+                              d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z"
+                              fill="#353535"/>
+                      </svg>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="menu d-flex flex-column align-items-center justify-content-center">
+        <div class="menu_content">
+            <div class="cross_1 d-flex flex-column align-items-center justify-content-center"><img
+                    src="data:image/webp;base64,UklGRngCAABXRUJQVlA4TGsCAAAvK8ALEEeloG0byfxJ39NuGOZ//hG0bdvYkmy/2rZtGGTrzBuYMwAAWPkf4wACECCEAICwObEUqRzlgQjBRfRNCxzbkDBj6TcQBPho8hAEEFekogxuTGFhH6w/WtgBAci2bdu0oxnbtm3btm3bvDdJObZtzf88SM55qseI/k8AvrXkkkcZUGk7X9fIQnU48C9gfEJTVcQzCEAyg1RRzgIATYxRgeEKuQvglCxVbp1DmYEA/POPmahUKPsg/X6jVAmdZPyjUmHskfF2qxTWORxvBMAs+4RJihmuksUAeskyqDCFrQBm6QzxoGjDL5gM3Z03SZizEcAkIepxSLJYlsEZLx+5KubIBgAT1BWYvrCj4pIpUs5e08wGuliqp6+vr+fFRgCTtNXX19frZByA+/sof4H1GsljAKB0s4gkACySPPCE7iEnO3e6BMXzWo1Go10edQMQOKbRaDTa+TpB80ZFB1+sClkAlcayfZ5QLdfaGKgWbw7akJmRI9WC4KKyUmGuBQC7vFJhSYQgezIlj3RC+CfJLcEVJSsADFBSoCX5Hg3ALKPy7gaABX+GhoWFhWaxBcA0E0LDwkK6WQu48Cg9yQjiafwdlXhJVwhN2ABgkhDd5uoM6QO5XSSZB1EP1gMYp5WIwQS5FwL5blUlDvgewNgSCn5N2f8HjmwAMEmo0ostAKboq4ZCshLAIDmuXAIvCi0A2OfMcUkpnYcXSI/RXSEjLsnwY65Cuh/XMvrpqxBy+SvJFYBHfBc3oHgbuQ9gn/xhqhxS2QqghjVQYwCjAPgzXBU23ATwhw6qQCtvF27ZBpVWPPG5Bt8JAA=="
+                    alt=""></div>
+            <form action="#" class="menu_search_form">
+                <input type="search" class="menu_search_input" placeholder="Search" required>
+                <button class="menu_search_button d-flex flex-column align-items-center justify-content-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                         id="Capa_3"
+                         x="0px" y="0px" viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;"
+                         xml:space="preserve" width="20px" height="20px">
+              <path class="search_path"
+                    d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z"
+                    fill="#353535"/>
+            </svg>
+                </button>
+            </form>
+            <nav class="menu_nav">
+                <ul>
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="ministries.html">Ministries</a></li>
+                    <li><a href="sermons.html">Sermons</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="menu_close"><i class="fa fa-times" aria-hidden="true"></i></div>
+    </div>
+
+    <div class="home">
+
+        <div class="home_slider_container">
+            <div class="owl-carousel owl-theme home_slider">
+
+                <div class="owl-item">
+                    <div class="home_slider_background"
+                         style="background-image:url(static/img/image-background.webp)">
+                    </div>
+                    <div class="home_slider_content text-center">
+                      <div class="cross_1 d-flex flex-column align-items-center justify-content-center">
+                        <img src="{% static 'img/cross.webp' %}" alt="">
+                      </div>
+                      <h1>God is all around us</h1>
+                    <div class="button home_slider_button"><a href="#">Come and join us</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="home_slider_nav d-flex flex-column align-items-center justify-content-center"><img
+        src="data:image/webp;base64,UklGRmIAAABXRUJQVlA4TFYAAAAvBoACEG8w//M//4oiSWqzlxPxhQW+yCAAHwgMHDwIPhwBxMaFgE1tbW0edWZmYocUKRETG1VI32Ojx048RPS/BZWEI8K2S8L7U36WocHdnmEUnB5qAQ=="
+        alt=""></div>
+</div>
+</div>
+
+<div class="intro">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="section_title_container">
+                    <div class="section_image"><img
+                            src="data:image/webp;base64,UklGRu4CAABXRUJQVlA4TOICAAAvI8ALEP+FoG3bhD/A8fmW9hTmPxCmbdtc7aTdFLlt28CndNLfwExACdxJHyBQ9wCAMDSZlBXAMqoLCQT6JHcPQAQfCZUL6FxBfCPrAdzoXKK6kAvo3JIiABIlSTZtq66ebdu2bdu2efls27ZtXNe/vbfPOmffL4joPwO3bRtJ1717d58guSduUwGWWBG8Lozblnb05Yvi8hevrlaNxY2iwnILC59XrbhCLIoqIDTWjvF5aeH32GGrA9p4OGYY5H5Y7/RYoX7R99rVa2S+tUkcrlmmWurTOMzzy4mTJ0+8d2Uc8ATAdonHSYAd8ejknfbt27c77YDUc5WvGvBhvVTf/jt3L1q26p/LF232d9uUQhedQcAROjCFMEr7E7RDkTOThvmm8IuddxVB03fouQ37DwTdv+WoHqocIuOjhabgX8tqBpMWrqpRAzp3gxo1oFNkgTn2CBebuQDYp2cyowuczYLRdg7T2uVwzR2bfAO33LnJ5+lMs09ympoDq22Q7h5YY5dUWEZnl8Awm1dyFkxxKFOT0dLp1HQh9BOcCqNtzoBkXer4JPu0L7Kz73g0z8fZ2Q+8kn3XVmHyVf9E+oUW0HPBsNHt9eomWKdO3URXWxAIyz1Niu51DVHHe5+AfXbtGULAsy6M7sYPWSS6U/Vg6HnqOKCV1oNWbRJ+2kNNG+5MOFmrtpD1zV40+m57JnzW33OAv18BnlsJxn/R33NpZFmrbEcyTTeu++UyMj0HsNuGTLZ849qfLqaTB49Kmp+qAM+skeYFgByr4tfKwBNr4tkC6ehEgN7OwEsAedLdSQA9HYNHCmS4naLf94oQU+wa/Z7nRxliX4D2Lg0x3gEAbZwTZbD9In+pS0KMi/7WbZ0dZVBitDiBXBmbGM3CI/ullc0AajkFjwNskx62AKjmcDxxzH03vbbvwIF9l32+z7/79h/Y99V997z+fy8XfbTPUwt/6C9V/aW/ylX9lWQvSwE="
+                            alt=""></div>
+                    <div class="section_title">
+                        <h2>Welcome to Our Church</h2>
+                    </div>
+                    <div class="section_subtitle">God loves us all</div>
+                </div>
+            </div>
+        </div>
+        <div class="row intro_content">
+
+            <div class="col-lg-6">
+                <div class="intro_text">
+                    <p>Integer nec bibendum lacus. Suspendisse dictum enim sit amet libero malesuada feugiat. Praesent
+                        malesuada congue magna at finibus. In hac habitasse platea dictumst. Curabitur rhoncus auctor
+                        eleifend.
+                        Fusce venenatis diam urna, eu pharetra arcu varius ac. Etiam cursus turpis lectus, id iaculis
+                        risus
+                        tempor id. Phasellus fringilla nisl sed sem scelerisque, eget aliquam magna vehicula.nteger nec
+                        bibendum
+                        lacus.</p>
+                    <div class="button intro_button"><a href="#">Read More</a></div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="intro_image"><img src="images/xintro.jpg.pagespeed.ic.wdylyNhQ7m.webp" alt=""></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="services">
+    <div class="services_background parallax-window" data-parallax="scroll" data-image-src="images/services.jpg"
+         data-speed="0.8"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="section_title_container">
+                    <div class="section_image"><img
+                            src="data:image/webp;base64,UklGRjwEAABXRUJQVlA4TDAEAAAvL8ALEE+noG0byfwBHqH9h2D+Q0BQIkl6gRkDAwBjZDTM+MkAIxgNY2A0jMRgfGQAjMyMkRlgAABF27ZN29GIbdvmi23btm3bLsW2bdu2rVe54zvevfVO5Qsi+j8BBL3vGL+5/l7Zun372a/w/1f7VAYgAcxTQ7o1TZikx9sHVdntDc7ozQf+HfXufcWVvs6apFTp9OutHxRT1csb1DmceAgl/Rqt0Z4k8MN+SEJ6F4/y5/mlNXqu0bt9BqiLgvrHg9bihVDnqTFn3btPYkfPcH5A/snCyUvtTsxiFfPEoaQHpy2EpRYPItFYR1QfpiOBQnWqlc2fEGiuk5pW7eDe2GVaZ9j7Ram41Yh7apH2lGEPFfsvdStRVvedDg1rm4sMR/TugrZvP7aZe1PP5iVDi15tD6ttKNs43CuXf7tTigUC43VjRuCXQPq/dC7Ahl85Nrtaw+Vdp3PhSwh2u+ftcYCzVwB2f9vpSeD+F7rq7sLhSPrrm4srOoCdTqWN/QHiAi0dzChPw42Xe31vFBHHmqncQV8x0mlAvxIxYhboBwz3L6a7vk9610faHErVStNncBeBrjZfQpeATyINDum5nFzzS9f4sYvX7o13WGRnvBRppVerQJSbLzoidl28s9LSnPeInSJ01v3AfqFz8djl7wJehdnaOFz80LW+jgSfEPgZE5NbLRCmpo15LBmdGdwgi/D0RzmfhxlsVlqatri1g6ts1TjOo4/VYO9LfXRvlA2ifP3ybMIg4ux9+cY62Zxz7anfXx47+uGb7x5PsGFp33+4EsyRDx+tm925t5/ph7OQ1eU0Ml1JaxN4FavHdR64mZiHLHtSMjsluH4W552kdkyYlB+0LfgguGMmpa6jVpo5DPl1fTJOCfXzxy5HQ/AGsFgXE75k6KzPKOiKg46MXRfPL7QRFNniKSL+LWU9xEV/DksSu4QDv/iKhGv157JI24Qe5kzndgJdblmeOTzLtweRJlqi0Tj3sdBRQKsCkXK0Bvr6F4e9EIWbIiX+9cGjR4STDqeRAyO1thd9vU55e8/0qcUjZPhD57FH4JRrX1wA2HsE4PjnVV6NzwlhlK7LEu6FW39cznH7OcB8XZkCUCDpPF0OeJuM291tdLiOTSin3m3Xq1N2CpzXY2ObvfvUdORBvVGW1K16eme5dqZ2z3Axs20x7I18NDxqxLMtSXZYDenJMsR6pkPL1B2mg4EURao3ahyVHBrqtNqNXJuBANN4BCaNXWEHyF6hbCKAUp6YOIn2FiXQPm7ob1mORk+OVv3UCd5IUVd5jYBHqb3b79CTQyqPOvDe2X2sB098kiEoVhvzk63h2ln6qct3/qt/EXSUp7NWrpYlzVV3lX/1Ke8ov9zVR522WCeohreyEzPucjVat6YnRWJIebNrUP8195Dv0aOK8luH5Dc/djYw"
+                            alt=""></div>
+                    <div class="section_title">
+                        <h2>Our Church main activities</h2>
+                    </div>
+                    <div class="section_subtitle">God loves us all</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="services_text text-center">
+                    <p>Integer nec bibendum lacus. Suspendisse dictum enim sit amet libero malesuada feugiat. Praesent
+                        malesuada congue magna at finibus. In hac habi tasse platea dictumst. Curabitur rhoncus auctor
+                        eleifend.
+                        Fusce venenatis diam urna, eu pharetra arcu varius ac.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row services_row">
+
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="services_item text-center">
+                    <div class="services_image"><img
+                            src="data:image/webp;base64,UklGRsYCAABXRUJQVlA4TLkCAAAvK0ALEN+FoG3bhNr5o9qbFsOsT5CCtA1YuO6hbds20Jq2TM8AvQFDwEC6c50ZBYEIIcDuVJoDA2B4CFAw+GAFCgc8ZHmg0oJQcZdc6NL9H+gkbM0ndHMNMCRIkm3aVj3b/rZt27Zt27Zt27ZqeFfnnPgDiOj/BDDmk8crCX/4K083GOqHC77IDa23v8778etHGOGk0J78haH6CCpdHtrfD5D3Y7szuz6wLrQlLu5yx8yL6mAmTCkNocv0QRxS58CQcQ3z3qsdA1un7mTguFbEfeWQ/n9/ZAc02KO91ziThE2dA8PsFtB5gV/fEpV7DLbaOKDNdqDI24nY4sO77qd42fGJydXfeHwkhT+9pq2TYKGupvCNei5OUUwr1V00vujj3qR81AG5CxwHvV/5ri88tnXudjtBGgH6EfA0Bbrtj3l4DnKcQ7Cn7MwMJzDbzrR2Ic9swAZ7BlT1WT3LTG1DU52Q+089RNC12y4tppPXpxaQN/WSTesOXppOuJckvtcIf7fN4tT3QARq9Hof9jzRBhGgxWlXo6daEmr5ik3tiHUlXgMYsHluekD1vqvDgGKX43VggfowmP5PbF/3UgBX4UXI8Gz1SI90Ty3jlF6B9c4eN25mzKtxY3c7Ar7otpTWuqBvI9ht3EncNHYBtO6/w9GpvP1DbG5ZRUVFZSmklVdWVpRnEuvJVI7YqzwDyCssLCzMA/ILCwuygJzysc5Ppeq17oNRxh3PVWPbwW29kZkKJYs1m1tOmzJlnqvx3ZTJS91Lc59PJ8je+ttlAK7Ci8ARf2gJwfa7fH8iQJnL8SbAokcnWhJyMlH8fxXH3IgKrsSrEWl9xrXo6TZRqNMLPdh6TxtFYK9NiK31UAQuSHwvRqC/t8flkzfuskMjwCxtSzOdQyTn2YU2riKa+XpYyyJCj6c+70OQAA=="
+                            alt=""></div>
+                    <div class="services_title">Teaching</div>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="services_item text-center">
+                    <div class="services_image"><img
+                            src="data:image/webp;base64,UklGRsgDAABXRUJQVlA4TLsDAAAvL0ALEN+moG0bJtTGH1bfIMz6BClI24CF657atm0YeEvlHaAboAbscxFD5CWwm8BgeIBaPSGPiObohQIPpyFe9qCEHZx7T+FPA0CCJNmmbfW3bdu2bdu2bdu2bds2r/FQw9l7n3fvG0FE/ydAZuX2kzdefvrl67MrW6Z1qKZk11j1G2s0gtW/vm5SVkBw+4DG5fNJUp5yjfpu/Adbk7COK42V4XonOZw4XimhN8mbsNTg0ET0+ZtaJGE+SF3TtqyX0q2WBsFfOGHpZwf9ANIeXdy/bdv+8w+jgG/kofTEcUyqO2z3G5wfD45uKG0mCedlL9msTZvm5WQ/kIxzjh5RiI537M8MA1k+l5mZ4aykbHlz55qIxNKcufNmywzd/gKUKwzwb2SyTksazpOLp/YXyrv/xKX7zJO0jyKJOyVpKEXldhTOSIGyxRw3JY3kw73rp4rmOnbl/msWSjpGbk9d9/8CYnsaSAr8l9TxdQSoWACIvRwg6TFy557xhujrgyu3vIG50mVkH065fCyQnXeufgBTZFa5xXxNpKltiDHHVodFtpxH8W059INHlWQ+oFJh7thGG4tsxylrqfiWDVmlXBOIlTCKc1Rnqekom9dRkrsyq/toJ2sznhr6iIrwyTIGiSWWR1QyyqbA7fX1DS2nnXEAaTSnjHEc289SYxuzZX5l696/sMvIwlNjG5LWcKmQ1DcO8clSrsPskXmG7pKqHuZhFknPKCjpjKFFMCGPrNmGxdgkszsbZB3NZUnjfheX9CtkqIMPTgxs1bLvfoj1kpklQPzF5OyStJkOknJLyscxizT4IdanY7LLOpuD59PwNZIkQjllHUszhzSSIX2ZLWe29O+S+kNtSesoYfuZJo+DkZjhassgSarBX0m56mWxdGOKl9GUKcRc1wnyGxrCJHmMRpQ43sseJ7drLx0Tl4+djuWUdwzkiDz3NCY6yrDMkaNWFltrPshzwcXGliK2Iqx1uFsRLu7K0uVEAChVEIic7Z1LEo8yMphwRTlHp8Ln/WcpXZBru94BU6QLFPSUczvvS8t5hv8TS0odKFOIEVLRUV+4oQrc8NI3zKGscu5itcyxSMyXOY8TWsDVKpZS476R1lvuMpyVY9sGh7ZTRUvhzY5VJ/9A2qxc8tiA6bbBAFNtvWkpNTkE8PdgT3nPHo6WsBSoVKlSpYKW/D8oILNMxcLKeFPoY3jtHKGLktkiSHB1u8K2Aq2W/oFOSm6OyT6Az0+ffkwFIrMKKPm1Jxx7EoLI81PT6irJAA=="
+                            alt=""></div>
+                    <div class="services_title">Communion</div>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="services_item text-center">
+                    <div class="services_image"><img
+                            src="data:image/webp;base64,UklGRrYCAABXRUJQVlA4TKoCAAAvK8ALEGeFoG3bmNr5o/qXHcOsT5CBtG1Db7urbduGgdcU+g3cGfAJBHABMgeXBA2hwQCGcinCtfdkmRvEcqArWrQABgZjwV9JWhSTIGwMEMEpiLCHiScsuMpg4QJItG3b2Jsd/IhtO3Vs1W1s27ad2rbN/Zb/vef7xvcEEf2fAJhd+TUZlg0kw6zzmOmw7AxbYdkCXoNlQ3kXlvX9yDtTSwuTE4VWCPv/i8oFK8AZHBSEGt6zW8I1gW9tsGo0GQ7zvcumH7x/sV4dq/D+wmMAIi8vP3n/aL4yQOY+TJI//pPcSgD8HrMQiFgmyR8kOekrOPmZL67EuwHhhYdkDYbYDJwjb5ZGAYi58JD/sjU55HnoM16xI6AKaOGXM9CXkGcV8fyTAPF1VgBlfOCANPQTj7u8ZxwMvqIb+NMN8hB+B3CVrTAaw9k+ZsJoOQeBb39gfJO8AePv6JbMURNSyDwT2phVzwwT8JfeJiSzf5phiK9tqJdmAR/+A6fqpQ11KbBzbZWBGKD8BfD6D3CT8jm4c3+VQXCER4h9gTd/AJ8IcbgXPLm3wmDAPyhQChUCpUEBgI27Lr2UP1Vdp3wGnqqkusYGYWOu6nSDtLE+DTaViS7GNW2U31ZtUj4CT1X+wdGh/uioR9V0dHSoPzqsgk1lootxzcWXr6QvF1VjL1+Jm3XVX79/E/7YVs18//5N//1bu85EF+OarEV5k+rSorxA10H5fdUu5ePwVJnoYtymiioqLdaXlGaqUkpLivWlxXG6fspfqm5RPgdPlSMxSZic5K/yTRIne8Omgt3LoXc6oYLT6dA7HdD1U/5MdYPyWXiqUju7xcWq7K5uadcJ2FQmuhhXBFrFg7urhJnPf5sBHqxxb33T6MY6ubGxaXR9iztjP2jmr58088cE"
+                            alt=""></div>
+                    <div class="services_title">Confessions</div>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="services_item text-center">
+                    <div class="services_image"><img
+                            src="data:image/webp;base64,UklGRqQDAABXRUJQVlA4TJcDAAAvL8ALEN+moG0bJtTGH1bfIMz6BBFI2sL7KWzbtuneZd6A3cDOcJ2D4Fp3h1McYYCRB6kb1IZBQUAAwKFAlJcK+BEO1CRPwVA/PQDUbts69ma7tm3bbmPbqG3bNp48tW3bRpya4fo5931fd/vya0T/J0C/+c5+/bUHQJO/1nXY8pfqwsxd1PgrXUENWfIXasFR6Q0V/joeWkqhTPzrfC+UJK7/mUVPTa5RW2rDVqPgl81cVIMxBt35NHkqNDd6hcfFKnhvoBTgfjuZRgBNjGqwz4/xBlKb2Li2Rh+/9OOY0Vra6HOxwYAFF4GNBpFM0EUaG1ThkZTKSIcw+L49/gCdnfKRWrHHYDn9JRX/dHhDK0mhhDsEMkvSdeo5VCRHkiYRZZf3WZLS8Xd4RyVJXVnnMINgqblEtl3+F8twp16slFpIz6hsU7HwgzS9rJ0WMNBSiZcublFLfUmQDzNsejFV+sBuNWC9ZSvX7HxsqnBBusAr6VemTTiBGsFnqoozUqNXcNVumE1DVqoNvxiod9h0ZaI+Z3ZhhlgtNclc+iTXkspYm4pc1Wk6lz5U4Wsbvc8LJ0bHf+ymp6yPCy3JvLXRcYLwaCZbGWc3DPDRAtgn2x8FduSEWpoAcxUNr+Q4BvgIx2TblfuWNA6UbbBocDG8h0dNnVQ+beeZ2Z1l2zWfy5YRdJRz1JpzK4bIsV/6cL9+IeGD+yWOTOmm+vD5nmU4fpLqRowcMTy0T0CET5/okcMHSRVPYb6t3NhO977a+Us+uL1WfQvLgnz97X2DdzFFyvrm1JCy4b7+zn4BczhJlsw//pDefnFKJEIuL8BtFw8wG01PN1vglqVqFYfXhWbp9HeqYeOFS5IWUzxKWvB0pa4XuekQ8+ROgtTyPKXTJO2GU1IH7maimZQx++APszQOUgL+8rI3i9bSHjgm+dBhU5nuFarg2qlvZqmUoJos03zUiiHSXvBKq2jx/rQ+vxb7DxWZpZGNxAm1Z2AFtks7KH7TP5BH4mY/NiuXvJdmSUB5Paf9CCJ0mQntT5Z+BH621CyghXpmccPNMz+pK/C8jureBz4V35gxuZGkpHndJenNN7N0ektSj4XTakhS7JxHhXhk/qDUTX+L6Xo44uJpoZuhbrz/Bw7/tnSbIW4ywOPiPlLOJ0sQ/hpOazcb4asnw+uc4eGL9AJPhtdzj2CN4pLHa5rh+UgmLn+dlQ58w/pliGK/4DoTAA=="
+                            alt=""></div>
+                    <div class="services_title">Sermons</div>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="services_item text-center">
+                    <div class="services_image"><img
+                            src="data:image/webp;base64,UklGRqwCAABXRUJQVlA4TJ8CAAAvIcALEPeloG0bydSOP6p9PQqzPkEEgpCYMJu2DZ7bqm8gb2gOg31gbYLsgWHgcEVrDsPKOdhsAQAcBUCxxWhBUUaxHI35lbznHxwStyhZFcoQFBIkyTZtq59t27Zt27Zt2za+bdvqyZ1z7j33xR9ARP8nAHKquSbXTN9+VgFZDbySWrdfUPiXq8pYBmW0HH6n8P1Rd5qvMbggZRZR0nv8g8JHS40xZtoQ55q6hhDtv0jyyURFgqcuFNZ9Q9F3Qx9ZHmqrBsni9990JD692d7e3t4iP7yFgiXfSRpLcBLCa3z5Qcr7Dr8ljf0zEtPjsshNhUrZCAwTsK5+UA8drojcUiiPLsDU35B+kqvQlCWbEcAEya2EX+vQkiWWUUDVsz4PgHvyhJwwGoAaAPBQBo3Mu+SECUTDd7isXPEHsssRQr28Z+SYM3SVMCCLtCAa/4JssQOUMuIMADgA2GCuJoTKGHIERqXP6QcsEOJK/dlvIskYYJYG8hiRvBmVxQgVqC/M+wMpgjnqyyOeI5i/AgtXYJF6/4GlK7BMXZWtXIF56qgmEtigripyaWM6yu8aqsjiIbnkBUmuyVBAHvhDWoPrMri1B0NcJ6x6i5ySQdwuqf8eSd6vc5FDN7B45TfJX3uVAfqQvMVXH0XMk9pOSfJeX6YTFL/F16/gntV/+p180JdoCRkvef79GYX/jgZrs/Kbe/oHlOx4z32Sf/7w71/KvnnGIhuLOLZaWllZPvtiJe0YHRcTExMT/fSd0eufAOxYBgAPP0K6kJKd2KM34Mg6wYtPClhk5eTk5GRnvbgBF/LZgxdMR5Qvdvno0WPxy1XRZXIVPpsfvn5jYQeZOv7ns/I3LyYg9CDZsMU/l5A/gGwArvGhCuyftAHA9QN5AAA="
+                            alt=""></div>
+                    <div class="services_title">Daily Mass</div>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="services_item text-center">
+                    <div class="services_image"><img
+                            src="data:image/webp;base64,UklGRlgCAABXRUJQVlA4TEsCAAAvIMAKEH+loG0bJtTGH1XfMMz6BClI24CF654it20b5DRb5hug22AAAFR35IPKIIDrywBLMAEDYhgPfKwhgqEAWPohNwDqudjNKEwd1AwjkkViZcM/0XtyiyHGfBAAEmzbNu1ox7Zt27Ztsxzbdsqx7RR3I/97998mRPR/AiDVsfuWXEqA/AzyZmGbnJGWwqsgAKZvuSLJgL+NoNjOZDkFzIHq062ceRqo9dJJyldCvYaBUiZorjZOOymZLFPjKaTqPNNRqZfRcuBIZhsAvovshdYJUy8879SzfyYP7sgeaGs4Rx59vifTUbn5eNkTDK0P2WoFwH+HJZA7zXIob9FFSiO7oGrMbSV9HZFUrkFwnaYA3BfJj2rufDAQaaE7EEBu/OSCjoLuHb0g2k4rhJIhQDNLFVaYAOEVvgkhPQCAaxrv2QRhb16R9AOAMH4CkM85COvd0qR+zwsA3F7/OQPePIX4KlOhbP+XkYDlL9qKdbACyg5PTAKwzwgIp5J1Sq6vDAPQwFoI+/L7OJs07H8zAQC4C2HTXzTBJLsMEPDKeCikiX1jPIBp8g8ZDiVPoQ+sgmbJl5NhH6h4i1RwFBJZKODFM8j8fyMwSwspuRxR2yHkjvE4x0ohnwNyUENy2AMAenkVIgX6KQtkKwBkkW1SAJiNcdYGgPsPbjpqF5FfkBeVtsenNACoJou0Wab6sgb87tgn1s13ibHx8fFxsTHWCtAbYqYQDyCRF0IvtxIMuCmUyevBvv4BzcHBwaGhoaFR0lcIxc/U+jIJwgA="
+                            alt=""></div>
+                    <div class="services_title">Daily Prayers</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="sermon">
+    <div class="sermon_background" style="background-image:url(images/xsermon.png.pagespeed.ic.lx6ZiL0G6X.webp)">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="section_title_container">
+                    <div class="section_image"><img
+                            src="data:image/webp;base64,UklGRqgCAABXRUJQVlA4TJsCAAAvIcALEPeloG0byfwBHp99PQrzHwSCkJgwm7YNntuqb5AXzTHsA2sTsgfD4LiiNcdYOQebLQA4BShbjBYUZRTL0ZhfyXv+4UjcomRVKEMoJEiSbdpWP9u2bdu2bdu2bXzbttWTO+fce+6LP4CI/k8A5FRzTa6Zvv2sArIaeCW1br+g8C9XlbEMymg5/E7h+6PuNF9jcEHKLKKk9/gHhY+WGmPMtCHONXUNIdp/keSTiYoET10orPuGou+GPrI81FYNksXvv+lIfHqzvb29vUV+eAsFS76TNJbgJITX+PKDlPcdfksa+2ckpsdlkZsKlbIRGCZgXf2gHjpcEbmlUB5dgKm/If0kV6EpSzYjgAmSWwm/1qElSyyjgKpnfR4A9+QJOWE0ADUA4KEMGpl3yQkTiIbvcFm54g9klyOEennPyDFn6CphQBZpQTT+BdliByhlxBkAcACwwVxNCJUx5AiMSp/TD1ggxJX6s99EkjHALA3kMSJ5MyqLESpQX5j3B1IEc9SXRzxHMH8FFq7AIvX+A0tXYJm6Klu5AvPUUU0ksEFdVeTSxnSU3zVUkcVDcskLklyToYA88Ie0BtdlcGsPhrhOWPUWOSWDuF1S/z2SvF/nIoduYPHKb5K/9ioD9CF5i68+ipgntZ2S5L2+TCcofouvX8E9q//0O/mgL9ESMl7y/PszCv8dDdZm5Tf39A8o2fGe+yT//OHfv5R984xFNhZxbLW0srJ89sVK2jE6LiYmJib66Tuj1z8B2LEMAB5+hHQhJTuxR2/AkXWCF58UsMjKycnJyc56cQMu5LMHL5iOKF/s8tGjx+KXq6LL5Cp8Nj98/cbCDjJ1/M9n5W9eTEDoQbJhi38uIX8A2QBc40MV2D9pA4DrB/IAAA=="
+                            alt=""></div>
+                    <div class="section_title">
+                        <h2>Today's Sermon</h2>
+                    </div>
+                    <div class="section_subtitle">God loves us all</div>
+                </div>
+            </div>
+        </div>
+        <div class="row sermon_row">
+
+            <div class="col-lg-6">
+                <div class="sermon_image"><img src="images/xsermon_image.jpg.pagespeed.ic.7fnngzZ8Vf.webp" alt=""></div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="sermon_content">
+                    <div class="sermon_title">Receive The Holy Spirit By Jesus Christ</div>
+                    <ul class="sermon_list">
+                        <li>Sermon by: <a href="#">Priest Jack Smith</a></li>
+                        <li>Categories: <a href="#">Jesus Christ</a>, <a href="#">Holy</a></li>
+                        <li>Date: <a href="#">Monday 11 March, 2018</a></li>
+                    </ul>
+                    <div class="sermon_text">
+                        <p>Praesent malesuada congue magna at finibus. In hac habitasse platea dictumst. Curabitur
+                            rhoncus
+                            auctor eleifend. Fusce venenatis diam urna, eu pharetra arcu varius ac. Etiam cursus turpis
+                            lectus, id
+                            iaculis risus tempor id. Phasellus fringilla nisl sed sem scelerisque, eget aliquam magna
+                            vehicula.nteger nec bibendum lacus.</p>
+                    </div>
+                    <div class="button sermon_button"><a href="sermons.html">Read More</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="causes">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="section_title_container">
+                    <div class="section_image"><img
+                            src="data:image/webp;base64,UklGRjwDAABXRUJQVlA4TC8DAAAvL0ALEI+moG0bxvwBjlD3IMx/GEjbFj/dk6swCAsRAwACiHDzhE4AEUAgMBAhhJPQCACIABAAHgAI4HEQFgIYNoadAAIjAIQPJEiSbdpWf9u2bdu2bdu2bdt8tm1+1Jje3uveN4OI/k+AAh+w/HJMGUBp9KVl/VXZrY+UAsS8e/78fSxA8eFWlbIN0rd0kbHrtgzYXAnnCRkgVRu+6drX6OivVzcOqyINCed00MZzTVrxg4p//1Lx23LpNmODdQFpM/yc10rO1vNDYJXEtWCtYb46vIPc3/fPHDhw5kFIHrxtrYWsCVatOLZKjZc9SMOZen9JQ2kHUdWCpcbfKdvdUObGe//ytaEqcUEG8PvE0skjR05ediIESJ2nII/fd2rftLpSv0PfMH490F+qNWX3qf2TApmVg/PHBElVWvcdPm7c8D6tJGnUJ5ylC01H+bulR6vucx/Br04yt/4ALxb0atV1XR5nDWt5WkPO+ntghGUgHG4i9032eZqSKGMf6OlrB0Nl/EVL1x4GW9SRTF8CvWXtzCnXT2RfyQzXBHbIXpThyigMoCY3XceoG0AErug/AYxml2s10wLIyHfdpK6pXsG/Rq56Bf9a2PjoWsAk0xNGy9uXT6ZRrHXV57ulEW9kvEUHywOaufSNWoa5TLYMYpWhJtHyLmCi4RrNLQ25YxjMWl8bjhs+I/P/OMNGBvpEuCEsgOxMwxdqGX5TwxcSQF6GgXgZd9HD9y4AonwtOGeZwnTfdRpbGnLfN4zlll5s9x2im6U9R3wbGG5pxG3fdgZZurDbd4XmFv2P8x2gu6UDh3wfkTmx3HeNhpZ6PPYlltg+44tH5rxCX16y7SVVXVX4brtNHc+fCNszqrumMc82lUWe/yG211RxRVLDJjI8ZVG2UOQcw0kFuJOZrrRsW3mSq5BqgaiYWo4fmJpx3vGE6Qp4NJ8cJ2hrmcLUChc5oSDu416Foay0hFNfavCKKwrqKb61kKqQZJjDDmk2HFSQd8AiaTHrXbXX86HpmhQKJyroI9LI2tToBdvrSbej/kAxsLW6KnN9ORQA0Q9/QmFK1N1JVVXZ425EJBdCFAA="
+                            alt=""></div>
+                    <div class="section_title">
+                        <h2>Our Church's Causes</h2>
+                    </div>
+                    <div class="section_subtitle">God loves us all</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="causes_slider_container">
+
+                    <div class="owl-carousel owl-theme causes_slider">
+
+                        <div class="owl-item text-center causes_item">
+                            <div class="causes_item_image"><img src="images/causes_1.jpg" alt=""></div>
+                            <div class="causes_item_title">Children's aid</div>
+                            <div class="causes_item_text">
+                                <p>Praesent malesuada congue magna at finibus. In hac habitasse platea dictumst.</p>
+                            </div>
+                        </div>
+
+                        <div class="owl-item text-center causes_item">
+                            <div class="causes_item_image"><img src="images/causes_2.jpg" alt=""></div>
+                            <div class="causes_item_title">Aid for the Elderly</div>
+                            <div class="causes_item_text">
+                                <p>Praesent malesuada congue magna at finibus. In hac habitasse platea dictumst.</p>
+                            </div>
+                        </div>
+
+                        <div class="owl-item text-center causes_item">
+                            <div class="causes_item_image"><img src="images/causes_3.jpg" alt=""></div>
+                            <div class="causes_item_title">Community Food</div>
+                            <div class="causes_item_text">
+                                <p>Praesent malesuada congue magna at finibus. In hac habitasse platea dictumst.</p>
+                            </div>
+                        </div>
+
+                        <div class="owl-item text-center causes_item">
+                            <div class="causes_item_image"><img src="images/causes_4.jpg" alt=""></div>
+                            <div class="causes_item_title">After School</div>
+                            <div class="causes_item_text">
+                                <p>Praesent malesuada congue magna at finibus. In hac habitasse platea dictumst.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                            class="causes_slider_nav causes_slider_prev trans_200 d-flex flex-column align-items-center justify-content-center">
+                        <img src="images/arrow_l.png" alt=""></div>
+                    <div
+                            class="causes_slider_nav causes_slider_next trans_200 d-flex flex-column align-items-center justify-content-center">
+                        <img
+                                src="data:image/webp;base64,UklGRmIAAABXRUJQVlA4TFYAAAAvBoACEG8w//M//4oiSWqzlxPxhQW+yCAAHwgMHDwIPhwBxMaFgE1tbW0edWZmYocUKRETG1VI32Ojx048RPS/BZWEI8K2S8L7U36WocHdnmEUnB5qAQ=="
+                                alt=""></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="quote">
+    <div class="quote_background parallax-window" data-parallax="scroll" data-image-src="images/quote.jpg"
+         data-speed="0.8"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="section_title_container">
+                    <div class="section_image"><img src="images/church_5.png" alt=""></div>
+                    <div class="section_title">
+                        <h2>Quote of the day</h2>
+                    </div>
+                    <div class="section_subtitle">God loves us all</div>
+                </div>
+            </div>
+        </div>
+        <div class="row quote_row">
+            <div class="col text-center">
+                <div class="quote_char"><img src="images/quote_char.png" alt=""></div>
+                <div class="quote_text">4 One thing I ask from the LORD, this only do I seek: that I may dwell in the
+                    house
+                    of the LORD all the days of my life, to gaze on the beauty of the LORD and to seek him in his
+                    temple.
+                </div>
+                <div class="quote_source">Psalm 27:4</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="news">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="section_title_container">
+                    <div class="section_image"><img
+                            src="data:image/webp;base64,UklGRrACAABXRUJQVlA4TKMCAAAvK8ALEGdlkG2k+gO+0N09w/wHgrZtG7rTPXkXHgKhCACIAAIBDERoDhwDwAGEEIoBACMsYyCAEAIIDCAGAvgAiACAwFCMA4ERIzAQ47AMADFCOABEgETbto292cGP2LZTx1bdxrZt26lt29xv+d97vm98TxDR/wmA2ZVfk2HZQDLMOo+ZDsvOsBWWLeA1WDaUd2FZ34+8M7W0MDlRaIWw/7+oXLACnMFBQajhPbslXBP41garRpPhMN+7bPrB+xfr1bEK7y88BiDy8vKT94/mKwNk7sMk+eM/ya0EwO8xC4GIZZL8QZKTvoKTn/niSrwbEF54SNZgiM3AOfJmaRSAmAsP+S9bk0Oehz7jFTsCqoAWfjkDfQl5VhHPPwkQX2cFUMYHDkhDP/G4y3vGweAruoE/3SAP4XcAV9kKozGc7WMmjJZzEPj2B8Y3yRsw/o5uyRw1IYXMM6GNWfXMMAF/6W1CMvunGYb42oZ6aRbw4T9wql7aUJcCO9dWGYgByl8Ar/8ANymfgzv3VxkER3iE2Bd48wfwiRCHe8GTeysMBvyDAqVQIVAaFADYuOvSS/lT1XXKZ+CpSqprbBA25qpON0gb69NgU5noYlzTRvlt1SblI/BU5R8cHeqPjnpUTUdHh/qjwyrYVCa6GNdcfPlK+nJRNfbylbhZV/31+zfhj23VzPfv3/Tfv7XrTHQxrslalDepLi3KC3QdlN9X7VI+Dk+ViS7GbaqootJifUlppiqltKRYX1ocp+un/KXqFuVz8FQ5EpOEyUn+Kt8kcbI3bCrYvRx6pxMqOJ0OvdMBXT/lz1Q3KJ+Fpyq1s1tcrMru6pZ2nYBNZaKLcUWgVTy4u0qY+fy3GeDBGvfWN41urJMbG5tG17e4M/aDZv76STN/TAAA"
+                            alt=""></div>
+                    <div class="section_title">
+                        <h2>Latest News</h2>
+                    </div>
+                    <div class="section_subtitle">God loves us all</div>
+                </div>
+            </div>
+        </div>
+        <div class="row news_row">
+
+            <div class="col-lg-4 news_col">
+                <div class="news_item">
+                    <div class="news_image">
+                        <img src="images/xnews_1.jpg.pagespeed.ic.OCV96sNYzg.webp" alt="">
+                        <div class="news_date d-flex flex-column align-items-center justify-content-center">
+                            <div class="news_day">06</div>
+                            <div class="news_month">March, 2018</div>
+                        </div>
+                    </div>
+                    <div class="news_content">
+                        <div class="news_title">Latest news in the '18 community</div>
+                        <div class="news_text">
+                            <p>Praesent malesuada congue magna at finibus. In hac habitasse platea dic tumst malesuada
+                                congue
+                                magna at finibus. In hac habitasse platea.</p>
+                        </div>
+                        <div class="news_link"><a href="blog.html">Read More</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 news_col">
+                <div class="news_item">
+                    <div class="news_image">
+                        <img src="images/xnews_2.jpg.pagespeed.ic.WjQa4tmfP9.webp" alt="">
+                        <div class="news_date d-flex flex-column align-items-center justify-content-center">
+                            <div class="news_day">05</div>
+                            <div class="news_month">March, 2018</div>
+                        </div>
+                    </div>
+                    <div class="news_content">
+                        <div class="news_title">Help us raise money for the kids</div>
+                        <div class="news_text">
+                            <p>Praesent malesuada congue magna at finibus. In hac habitasse platea dic tumst malesuada
+                                congue
+                                magna at finibus. In hac habitasse platea.</p>
+                        </div>
+                        <div class="news_link"><a href="blog.html">Read More</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 news_col">
+                <div class="news_item">
+                    <div class="news_image">
+                        <img src="images/xnews_3.jpg.pagespeed.ic.DK0kMSXhgP.webp" alt="">
+                        <div class="news_date d-flex flex-column align-items-center justify-content-center">
+                            <div class="news_day">03</div>
+                            <div class="news_month">March, 2018</div>
+                        </div>
+                    </div>
+                    <div class="news_content">
+                        <div class="news_title">The best way to pray</div>
+                        <div class="news_text">
+                            <p>Praesent malesuada congue magna at finibus. In hac habitasse platea dic tumst malesuada
+                                congue
+                                magna at finibus. In hac habitasse platea.</p>
+                        </div>
+                        <div class="news_link"><a href="blog.html">Read More</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="newsletter">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="newsletter_content d-flex flex-lg-row flex-column align-items-center justify-content-start">
+                    <div class="newsletter_title">Subscribe to our newsletter</div>
+                    <div class="newsletter_form_container ml-lg-auto">
+                        <form action="#" id="newsletter_form" class="newsletter_form">
+                            <input type="email" class="newsletter_input" placeholder="Your email" required>
+                            <button id="newsletter_button" class="newsletter_button">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-4 footer_col">
+
+                <div class="logo_container">
+                    <div class="logo">
+                        <a href="#">
+                            <span>Believe</span>
+                            <img
+                                    src="data:image/webp;base64,UklGRnABAABXRUJQVlA4IGQBAAAwCQCdASo1ADUAPm0skkWkIqGY/jQAQAbEsQBoCtdfc4wG4Y3iX9gOBU8kAC51m2WVTQgXO5fDVwZJSg7mumZ9paqemjQiJwa6WEJvBUyZTTAAAP4MX8c8Dj3cGkuNWztD8W9betp4Ml7/2ln/9Sz/+pZ/W1cLK5U+YpCnW3ncAE0fMlvvJ7/EHj7U/ud/oCDdlnKv0SLJKdNLUTJUJSZ3sHva0cyNQzO7/m4ZRuwccCuX97DOStDqqLVdQZmnx7L6CFRRecfhzqX9ISJ7n7muFR+AiR6BP8E54FfwMab0iQ6cWBb+smHDeJkeincBrz4miMY7AgGCCfpA4dphL+Tq/Xq2zOn8yizmwTI8c66yp1aQJ8pBfAKk2pYmyP72To4CjtKmXsEWCSJQicdnuYiQgUlP1gm815UKI+LlI/vn/3xSjZ4/zK/tcslrKHOqz7WqsePXh+6fforpRQJ9EiFrAAAAAA=="
+                                    alt="">
+                        </a>
+                    </div>
+                    <div class="logo_subtitle">Church template</div>
+                </div>
+                <div class="footer_social">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-4 footer_col">
+                <div class="footer_links">
+                    <div class="footer_title">Useful Links</div>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">Donations</a></li>
+                        <li><a href="sermons.html">Sermons</a></li>
+                        <li><a href="#">Causes</a></li>
+                        <li><a href="#">Quotes</a></li>
+                        <li><a href="blog.html">News</a></li>
+                        <li><a href="#">Event List</a></li>
+                        <li><a href="ministries.html">Ministries</a></li>
+                        <li><a href="#">Priests</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-3 footer_col">
+                <div class="footer_contact">
+                    <div class="footer_title">Contact Us</div>
+                    <ul>
+                        <li><span>Address: </span>1481 Creekside Lane Avila Beach, CA 93424</li>
+                        <li class="footer_contact_phone">
+                            <span>Phone: </span>
+                            <div>
+                                <div> +53 345 7953 32453</div>
+                                <div> +53 345 7557 822112</div>
+                            </div>
+                        </li>
+                        <li><span>Email: </span><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                                   data-cfemail="afd6c0daddc2cec6c3efc8c2cec6c381ccc0c2">[email&#160;protected]</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="copyright text-center">
+        Copyright &copy;
+        <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+        <script>document.write(new Date().getFullYear());</script>
+        All rights reserved | This template is made with <i
+            class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+
+    </div>
+</footer>
+</div>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.popper.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/owl-carousel.js' %}"></script>
+<script
+        src="{% static 'js/plugins.js' %}"></script>
+<script>eval(mod_pagespeed_w2$JNY6$Cn);</script>
+<script>eval(mod_pagespeed_OT2DLOXnSB);</script>
+<script>eval(mod_pagespeed_SvzwlsPWZP);</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-23581568-13');
+
+
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"rayId":"69b4ecd13cf66b44","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'></script>
+</body>
+
+</html>

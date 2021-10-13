@@ -1,0 +1,57 @@
+{% extends 'users/base.html' %}
+
+{% load static %}
+{% block title %}Contact Us Form{% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/bootstrap.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/font-awesome.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/contact.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/contact_responsive.css' %}"/>
+{% endblock style %}
+
+
+{% block content %}
+    <div class="new_page container">
+        <div class="contact_form_section">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="contact_title">Contact Us</div>
+                        <div class="message">
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <h3 style="text-align: center;">{{ message }}</h3>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <form class="contact_form" method="POST">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" class="contact_input contacts_input_name" placeholder="Enter Your Full Name" name="full_name" required><br>
+                                    <input type="email" class="contact_input contacts_input_name" placeholder="Enter Your Email Address" name="email" required><br>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <input type="text" class="contact_input contacts_input_name" placeholder="Enter Your Address" name="address" required><br>
+                                    <input type="text" class="contact_input contacts_input_name" placeholder="Enter Your Phone Number" name="phone_number" required><br>
+                                </div>
+                            </div>
+                            <textarea id="contact_text_area" placeholder="Type your message here ..." class="contact_text" name="message"></textarea>
+                            <button class="contact_button trans_200">Send Us Message</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/contact/easing.js' %}"></script>
+<script src="{% static 'js/contact/plugin-parallax.js' %}"></script>
+<script src="{% static 'js/contact/contact_custom.js' %}"></script>
+{% endblock script %}

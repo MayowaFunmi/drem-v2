@@ -1,0 +1,57 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{% block title %}Profile Details{% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/bootstrap.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/font-awesome.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/contact.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/contact_responsive.css' %}"/>
+{% endblock style %}
+
+
+{% block content %}
+    <div class="new_page container">
+        <div class="contact_form_section">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                                <div class="col-md-6">
+                                    <h2>Welcome, {{ user.first_name }} {{ user.last_name }}...</h2>
+                                    <div>
+                                        <p style="text-align: center">Below Are Your Registration Details:</p>
+                                        <p>
+                                            <strong>Username:</strong> {{ user.username }}<br>
+                                            <strong>Email:</strong> {{ user.email }}<br>
+                                            <strong>First Name:</strong> {{ user.first_name }}<br>
+                                            <strong>Surname:</strong> {{ user.last_name }}<br>
+                                            <strong>Middle Name:</strong> {{ user.middle_name }}<br>
+                                            <strong>Are You Born Again?:</strong> {{ user.born_again }}<br>
+                                            <strong>The Name Of Your Church:</strong> {{ user.church_name }}<br>
+                                            <strong>Marital Status:</strong> {{ user.marital_status }}<br>
+                                            <strong>Address:</strong> {{ user.address }}<br>
+                                            <strong>Phone Number:</strong> {{ user.phone_number }}<br>
+                                            <strong>Date Of Birth:</strong> {{ user.date_of_birth }}<br>
+                                            <strong>Your Favourite Bible Text:</strong> {{ user.favourite_bible_verse }}<br>
+                                            <strong>About You:</strong> {{ user.about_me }}<br>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="contact_info_image">
+                                        <img src="{{ user.photo.url }}"><br>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class=" button contact_button trans_200">
+            <a href="{% url 'users:update_user' %}">Update Profile</a>
+        </button>
+    </div>
+{% endblock content %}

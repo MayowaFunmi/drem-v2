@@ -1,0 +1,51 @@
+{% extends 'users/base.html' %}
+
+{% load static %}
+{% block title %}Testimony Time{% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/bootstrap.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/font-awesome.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/contact.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/contact_responsive.css' %}"/>
+{% endblock style %}
+
+
+{% block content %}
+    <div class="new_page container">
+        <div class="contact_form_section">
+            <div class="container">
+                <div class="contact_title">Share Your Testimony With Us</div>
+                <div class="row">
+                    <div class="col">
+                        <h2>Hi {{ user.first_name }} {{ user.last_name }}!!!</h2>
+                        <h3>We are glad to know that God has done something great in your life through this ministry.</h3>
+                        <h3>Please share with us the great things God has done for you...</h3>
+                        <div class="message">
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <h3 style="text-align: center;">{{ message }}</h3>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <form class="contact_form" method="POST">
+                            {% csrf_token %}
+                            <div class="row">
+                                <textarea id="contact_text_area" placeholder="Type your testimony here ..." class="contact_text" name="my_testimony"></textarea>
+                            </div>
+                            <button class="contact_button trans_200">Send Us Message</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/contact/easing.js' %}"></script>
+<script src="{% static 'js/contact/plugin-parallax.js' %}"></script>
+<script src="{% static 'js/contact/contact_custom.js' %}"></script>
+{% endblock script %}
