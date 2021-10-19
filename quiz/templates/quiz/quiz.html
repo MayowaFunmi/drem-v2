@@ -1,0 +1,71 @@
+{% extends 'users/base.html' %}
+
+{% load static %}
+{% block title %}Quiz Section{% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/bootstrap.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/font-awesome.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/contact.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/contact_responsive.css' %}"/>
+{% endblock style %}
+
+
+{% block quiz %}
+    <div class="new_page container">
+        <div class="contact_form_section">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="contact_title">Quiz Section</div>
+
+                            <div class="questions">
+                                <header>
+                                    <h2 id="length"></h2>
+                                    <div class="title">Answer One Question At A Time</div>
+                                    <hr>
+                                </header>
+
+                                <form id="form" class="contact_form">
+                                    {% csrf_token %}
+                                    <div class="que_num"></div>
+                                    <div class="que_text">
+
+                                    </div>
+                                    <div class="option_list">
+
+                                    </div>
+
+                                </form>
+                            </div>
+
+                            <div class="foot">
+                                <div class="total_que">
+
+                                </div>
+                                <button class="contact_button trans_200 next_btn">Next Question</button>
+                            </div>
+
+                            <div class="result_box">
+                                <div class="score_text">
+                                    <!-- Here I've inserted Score Result from JavaScript -->
+                                </div>
+                                <div class="buttons">
+                                    <button class="quit">FINISH</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="row">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock quiz %}
+
+{% block script %}
+<script src="{% static 'js/contact/easing.js' %}"></script>
+<script src="{% static 'js/contact/plugin-parallax.js' %}"></script>
+<script src="{% static 'js/contact/contact_custom.js' %}"></script>
+<script src="{% static 'js/quiz/questions.js' %}"></script>
+{% endblock script %}

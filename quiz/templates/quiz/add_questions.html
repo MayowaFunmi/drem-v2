@@ -1,0 +1,60 @@
+{% extends 'users/base.html' %}
+
+{% load static %}
+{% block title %}Add Quiz Form{% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/bootstrap.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/font-awesome.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/contact.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/contact_responsive.css' %}"/>
+{% endblock style %}
+
+
+{% block content %}
+    <div class="new_page container">
+        <div class="contact_form_section">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="contact_title">Fill the form below to add question and answers</div>
+                        <div class="message">
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <h3 style="text-align: center;">{{ message }}</h3>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <form class="contact_form" method="POST">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <textarea id="contact_text_area" placeholder="...Type Quiz Question Here..." class="contact_text" name="question"></textarea>
+                                    <input type="text" class="contact_input contacts_input_name" placeholder="Enter Option A" name="option1" required><br>
+                                    <input type="text" class="contact_input contacts_input_name" placeholder="Enter Option B" name="option2" required><br>
+                                    <input type="text" class="contact_input contacts_input_name" placeholder="Enter Option D" name="option3" required><br>
+                                    <input type="text" class="contact_input contacts_input_name" placeholder="Enter Option C" name="option4" required><br>
+                                    <input type="text" class="contact_input contacts_input_name" placeholder="Enter Correct Answer" name="answer" required><br>
+
+                                    <button class="contact_button trans_200">Add Quiz</button>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="intro_image"><img src="{% static 'img/prayer-bible.jpg' %}" alt=""></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/contact/easing.js' %}"></script>
+<script src="{% static 'js/contact/plugin-parallax.js' %}"></script>
+<script src="{% static 'js/contact/contact_custom.js' %}"></script>
+{% endblock script %}

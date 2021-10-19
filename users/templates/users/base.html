@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/base/bootstrap2.css' %}"/>
     {% block style %}
     {% endblock style %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" /
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
 </head>
 
 <body>
@@ -84,9 +84,15 @@
                                         <li><a href="#">Bible Institute</a></li>
                                         <li><a href="#">About</a></li>
                                         <li><a href="{% url 'users:contact_us' %}">Contact Us</a></li>
-                                        {% if user.is_authenticated %}
+                                        {% if user.is_authenticated and not user.is_staff %}
                                             <li><a href="{% url 'users:user_profile' %}">Profile</a></li>
                                             <li><a href="#">Change Password</a></li>
+                                            <li><a href="{% url 'users:logout' %}">Logout</a></li>
+                                        {% elif user.is_authenticated and user.is_staff %}
+                                            <li><a href="{% url 'users:user_profile' %}">Profile</a></li>
+                                            <li><a href="#">Change Password</a></li>
+                                            <li><a href="{% url 'quiz:all_questions' %}">Quiz Section</a></li>
+                                            <li><a href="#">View Users</a></li>
                                             <li><a href="{% url 'users:logout' %}">Logout</a></li>
                                         {% else %}
                                             <li><a href="{% url 'users:signup' %}">Register</a></li>
@@ -117,9 +123,16 @@
                     <li><a href="#">Blog</a></li>
                     <li><a href="#">Bible Institute</a></li>
                     <li><a href="#">About</a></li>
-                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'users:contact_us' %}">Contact Us</a></li>
+                    {% if user.is_authenticated and not user.is_staff %}
                         <li><a href="{% url 'users:user_profile' %}">Profile</a></li>
                         <li><a href="#">Change Password</a></li>
+                        <li><a href="{% url 'users:logout' %}">Logout</a></li>
+                    {% elif user.is_authenticated and user.is_staff %}
+                        <li><a href="{% url 'users:user_profile' %}">Profile</a></li>
+                        <li><a href="#">Change Password</a></li>
+                        <li><a href="{% url 'quiz:all_questions' %}">Quiz Section</a></li>
+                        <li><a href="#">View Users</a></li>
                         <li><a href="{% url 'users:logout' %}">Logout</a></li>
                     {% else %}
                         <li><a href="{% url 'users:signup' %}">Register</a></li>
@@ -130,6 +143,7 @@
         </div>
         <div class="menu_close"><i class="fa fa-times" aria-hidden="true"></i></div>
     </div>
+    {% block quiz %}
     {% block content %}
     <div class="home">
         <div class="home_slider_container">
@@ -209,9 +223,9 @@
         <div class="row">
           <div class="col">
             <div class="services_text text-center">
-              <p>Integer nec bibendum lacus. Suspendisse dictum enim sit amet libero malesuada feugiat. Praesent
-                malesuada congue magna at finibus. In hac habi tasse platea dictumst. Curabitur rhoncus auctor eleifend.
-                Fusce venenatis diam urna, eu pharetra arcu varius ac.</p>
+              <p>
+                  We have created different channels for our online users to ensure their spiritual growth. Feel free to partake in any or all of these channels listed below by a simple click.
+              </p>
             </div>
           </div>
         </div>
@@ -249,7 +263,7 @@
               <div class="services_image"><img
                   src="{% static 'img/services_4.png' %}"
                   alt=""></div>
-              <div class="services_title">Bible Quiz</div>
+              <div class="services_title"><a href="{% url 'quiz:welcome' %}">Bible Quiz</a></div>
             </div>
           </div>
 
@@ -273,6 +287,7 @@
         </div>
       </div>
     </div>
+{% endblock quiz %}
 <footer class="footer">
     <div class="container">
         <div class="row">
@@ -347,6 +362,7 @@
 
     </div>
 </footer>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="{% static 'js/base/jquery.min.js' %}"></script>
 <script src="{% static 'js/base/bootstrap.popper.js' %}"></script>
 <script src="{% static 'js/base/bootstrap.min.js' %}"></script>

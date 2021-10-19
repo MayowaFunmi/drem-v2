@@ -1,0 +1,47 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{% block title %}All Quiz Questions{% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/bootstrap.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/font-awesome.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/contact.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/contact_responsive.css' %}"/>
+{% endblock style %}
+
+
+{% block content %}
+    <div class="new_page container">
+        <div class="contact_form_section">
+            <div class="container">
+                <div class="row">
+                    <h2>All Quiz Questions Available</h2>
+                    <div class="col">
+                        {% for question in questions %}
+                            <div class="row">
+                                <p>
+                                    Question {{ question.id }}). {{ question.question }}<br>
+                                    A: {{ question.option1 }}<br>
+                                    B: {{ question.option2 }}<br>
+                                    C: {{ question.option3 }}<br>
+                                    D: {{ question.option4 }}<br>
+                                    Answer: {{ question.answer }}<br>
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+                                <button class=" button contact_button trans_200">
+                                    <a href="{% url 'quiz:delete_question' question.id %}">DELETE</a>
+                                </button>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="col-md-6">
+                        <button class=" button contact_button trans_200">
+                            <a href="{% url 'quiz:add_quiz' %}">ADD QUESTION</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,47 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{% block title %}Quiz Question Added Successfully{% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/bootstrap.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/font-awesome.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/contact.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/contact_responsive.css' %}"/>
+{% endblock style %}
+
+
+{% block content %}
+    <div class="new_page container">
+        <div class="contact_form_section">
+            <div class="container">
+                <div class="row">
+                    <h2>New Question Added Successfully</h2>
+                    <div class="col">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>
+                                    Question: {{ question }}<br>
+                                    A: {{ option1 }}<br>
+                                    B: {{ option2 }}<br>
+                                    C: {{ option3 }}<br>
+                                    D: {{ option4 }}<br>
+                                    Answer: {{ answer }}<br>
+                                </p>
+                            </div>
+
+                            <div class="col-md-6">
+                                <button class=" button contact_button trans_200">
+                                    <a href="{% url 'quiz:add_quiz' %}">ADD QUESTION</a>
+                                </button>
+
+                                <button class=" button contact_button trans_200">
+                                    <a href="{% url 'quiz:all_questions' %}">SHOW ALL QUESTIONS</a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

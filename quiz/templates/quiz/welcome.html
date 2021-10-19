@@ -1,0 +1,38 @@
+{% extends 'users/base.html' %}
+
+{% load static %}
+{% block title %}Quiz Section{% endblock title %}
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/bootstrap.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/font-awesome.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/contact.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/contact_responsive.css' %}"/>
+{% endblock style %}
+
+    <style>
+        a {
+            width: 15%;
+            height: 5%;
+            background-color: rgb(243, 234, 234);
+            position: absolute;
+            top:0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+    </style>
+
+{% block content %}
+    <div class="new_page container">
+        <div class="contact_form_section">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <center><h1><a href="{% url 'quiz:take_questions' %}">Start Quiz</a></h1></center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
