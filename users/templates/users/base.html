@@ -10,9 +10,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{% static 'css/base/bootstrap.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/base/bootstrap2.css' %}"/>
+    {% block blog_style %}
     {% block style %}
     {% endblock style %}
+    {% endblock blog_style %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+
 </head>
 
 <body>
@@ -25,24 +28,7 @@
                 <div class="row">
                     <div class="col top_bar_content d-flex flex-row align-items-center justify-content-start">
                         <div class="event_timer">
-                            <span>Next Big Event:</span>
                             <ul class="timer">
-                                <li class="d-inline-flex">
-                                    <div id="day" class="timer_num">03</div>
-                                    <div class="timer_unit">Days</div>
-                                </li>
-                                <li class="d-inline-flex">
-                                    <div id="hour" class="timer_num">15</div>
-                                    <div class="timer_unit">Hours</div>
-                                </li>
-                                <li class="d-inline-flex">
-                                    <div id="minute" class="timer_num">45</div>
-                                    <div class="timer_unit">Minutes</div>
-                                </li>
-                                <li class="d-inline-flex">
-                                    <div id="second" class="timer_num">23</div>
-                                    <div class="timer_unit">Seconds</div>
-                                </li>
                                 <li class="d-inline-flex">
                                     {% if user.is_authenticated %}
                                         <div>You are logged in as <strong>{{ user.username }}</strong></div>
@@ -53,7 +39,7 @@
                             </ul>
                         </div>
                         <div class="donations_button ml-auto">
-                            <a href="#">Send Donations</a>
+                            <h3 id="clock" style="color: white;"></h3>
                         </div>
                     </div>
                 </div>
@@ -68,7 +54,7 @@
 
                             <div class="logo_container">
                                 <div class="logo">
-                                    <a href="#">
+                                    <a href="{% url 'base' %}">
                                         <span>
                                             <img src="{% static 'img/drem_logo.jpg' %}" alt="">
                                         </span>
@@ -80,7 +66,7 @@
                                 <nav class="main_nav">
                                     <ul>
                                         <li class="active"><a href="{% url 'base' %}">Home</a></li>
-                                        <li><a href="#">Blog</a></li>
+                                        <li><a href="{% url 'blog:post_list' %}">Blog</a></li>
                                         <li><a href="#">Bible Institute</a></li>
                                         <li><a href="#">About</a></li>
                                         <li><a href="{% url 'users:contact_us' %}">Contact Us</a></li>
@@ -102,10 +88,9 @@
                                 </nav>
                             </div>
 
-                            <div class="hamburger ml-auto">
-                                <i class="fa fa-bars" aria-hidden="true"></i>
+                            <div class="hamburger ml-auto" style="color: black;">
+                                <i class="fa fa-bars"></i>
                             </div>
-                            <h3 id="clock"></h3>
                         </div>
                     </div>
                 </div>
@@ -120,7 +105,7 @@
             <nav class="menu_nav">
                 <ul>
                     <li class="active"><a href="{% url 'base' %}">Home</a></li>
-                    <li><a href="#">Blog</a></li>
+                    <li><a href="{% url 'blog:post_list' %}">Blog</a></li>
                     <li><a href="#">Bible Institute</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="{% url 'users:contact_us' %}">Contact Us</a></li>
@@ -245,7 +230,7 @@
               <div class="services_image"><img
                   src="{% static 'img/services_2.png' %}"
                   alt=""></div>
-              <div class="services_title">Believers' Forum</div>
+                <div class="services_title"><a href="{% url 'blog:post_list' %}">Believers' Forum</a></div>
             </div>
           </div>
 
@@ -345,8 +330,7 @@
                                 <div> +53 345 7557 822112</div>
                             </div>
                         </li>
-                        <li><span>Email: </span><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                                                   data-cfemail="afd6c0daddc2cec6c3efc8c2cec6c381ccc0c2">[email&#160;protected]</a>
+                        <li><span>Email: </span><a></a>
                         </li>
                     </ul>
                 </div>
@@ -365,6 +349,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="{% static 'js/base/jquery.min.js' %}"></script>
 <script src="{% static 'js/base/bootstrap.popper.js' %}"></script>
+{% block blog_script %}
 <script src="{% static 'js/base/bootstrap.min.js' %}"></script>
 {% block script %}
 <script src="{% static 'js/base/owl-carousel.js' %}"></script>
@@ -387,6 +372,7 @@
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
         data-cf-beacon='{"rayId":"69b4ecd13cf66b44","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'></script>
 {% endblock script %}
+{% endblock blog_script %}
 </body>
 
 </html>

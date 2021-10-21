@@ -1,0 +1,182 @@
+{% extends 'users/base.html' %}
+
+{% load static %}
+{% block title %}DREM | BLOG POST DETAILS{% endblock title %}
+
+{% block blog_style %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/blog/bootstrap.min.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/blog/blog.css' %}" />
+{% endblock blog_style %}
+
+
+{% block quiz %}
+<div class="home">
+    <div class="home_background parallax-window" data-parallax="scroll" data-image-src="{% static 'img/prayer-bible.jpg' %}"
+        data-speed="0.8"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="home_container">
+                    <div class="home_content d-flex flex-row align-items-center justify-content-start">
+                        <div class="home_title" style="color: red;">Blog / Forum</div>
+                        <div class="home_breadcrumbs ml-auto">
+                            <ul class="breadcrumbs">
+                                <li><a href="{% url 'base' %}">Home</a></li>
+                                <li>Blog</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="blog">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="blog_content">
+                    <!-- Add Blog Details -->
+                    <div class="blog_post">
+                        <div class="blog_image">
+                            <img src="{{ post.author.photo.url }}">
+                        </div>
+                        <div class="blog_title">
+                            {{ post.title }}
+                        </div>
+                        <div class="blog_meta">
+                            <ul>
+                                <li>By <a href="{% url 'users:user_profile' %}">{{ post.author }}</a></li>
+                                {% for category in post.categories.all %}
+                                <li>In
+                                    <a href="{% url 'blog:blog_category' category.name %}">
+                                        {{ category.name }}
+                                    </a></li>
+                                {% endfor %}
+                                {% if comments %}
+                                    {% with comments.count as total_comments %}
+                                        <li>{{ total_comments }} Comment{{ total_comments|pluralize }}</li>
+                                    {% endwith %}
+                                {% else %}
+                                    <li>0 Comment</li>
+                                {% endif %}
+                                <li> On {{ post.date }}</li>
+                            </ul>
+                        </div>
+                        <div class="blog_text">
+                            <p>{{ post.body}}</p>
+                        </div>
+                        <div class="blog_buttons" style="display:flex; flex-direction: row; justify-content: space-between; align-items: center;">
+                            <div class="blog_link"><a href="{% url 'blog:post_new' %}">New Post</a></div>
+                            <div class="blog_link"><a href="{% url 'blog:post_list' %}">All Posts</a></div>
+                            {% if request.user == post.author %}
+                                <div class="blog_link"><a href="{% url 'blog:post_edit' post.pk %}">Edit</a></div>
+                                <div class="blog_link"><a href="{% url 'blog:post_delete' post.pk %}">Delete</a></div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <!-- End Blog Details -->
+            </div>
+
+            <div class="col-lg-5">
+                <span>
+                                            <img src="{% static 'img/drem_logo.jpg' %}" alt="" style="max-width: 100%";>
+                                        </span>
+            </div>
+
+            <!-- Start Comment Section -->
+            <div class="col-lg-6">
+                <!-- Display Comment Section -->
+                {% if comments %}
+                    <!-- <strong class="text-secondary">{{ object.number_of_comments }} Comment{{ object.number_of_comments|pluralize }}</strong> -->
+                    {% with comments.count as total_comments %}
+                        <strong>{{ total_comments }} comment{{ total_comments|pluralize }}</strong>
+                    {% endwith %}
+                    <hr>
+                    <ul>
+                        {% for comment in comments %}
+                            <li>
+                                <div class="blog_meta">
+                                    <ul>
+                                        <li>Comment {{ forloop.revcounter }} By <a href="{% url 'users:user_profile' %}">{{ comment.author }}</a></li>
+                                        <li> On {{ comment.date }}</li>
+                                    </ul>
+                                </div>
+                                <div class="blog_text">
+                                    {% if comment.author.gender == 'Male' %}
+                                    <p> He wrote:<br>{{ comment.comment|safe }}</p>
+                                    {% else %}
+                                    <p> She wrote:<br>{{ comment.comment|safe }}</p>
+                                    {% endif %}
+                                </div>
+                            </li>
+                            <hr>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <strong class="text-secondary">No comments yet...</strong>
+                {% endif %}
+                <!-- End Display Comment Section -->
+            </div>
+
+            <div class="col-lg-6">
+                <!--Add Comment Form -->
+                <div class="blog_title">
+                    <h2>Leave your comment:</h2>
+                </div>
+                <div id="contact_form_section">
+                    {% if user.is_authenticated %}
+                        {% if new_comment %}
+                            <h2>Your comment has been added successfully.</h2>
+                            <h2>Add another comment</h2>
+                            <form class="contact_form" method="POST">
+                                {% csrf_token %}
+                                <div class="row">
+                                    {{ comment_form.as_p }}
+                                </div>
+                                <button class="contact_button trans_200">Add comment</button>
+                            </form>
+                        {% else %}
+                            <h2>Add a new comment</h2>
+                            <form class="contact_form" method="POST">
+                                {% csrf_token %}
+                                <div class="row">
+                                    {{ comment_form.as_p }}
+                                </div>
+                                <button class="contact_button trans_200">Add comment</button>
+                            </form>
+                        {% endif %}
+                    {% else %}
+                        <button class="contact_button trans_200">
+                            <a href="{% url 'users:login' %}?next={{request.path}}">Please Log in to add a comment!</a>
+                        </button>
+                    {% endif %}
+                </div>
+                <!--End Comment Form -->
+            </div>
+            <!-- End Comment Section -->
+
+
+        </div>
+    </div>
+</div>
+{% endblock quiz %}
+
+{% block blog_script %}
+<script src="{% static 'js/blog/all_js.js' %}"></script>
+<script>eval(mod_pagespeed_w2$JNY6$Cn);</script>
+<script>eval(mod_pagespeed_OT2DLOXnSB);</script>
+<script>eval(mod_pagespeed_yeMiaDyUpM);</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"rayId":"6a0b090f0d171e71","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'></script>
+{% endblock blog_script %}

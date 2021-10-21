@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', users_views.base, name='base'),
     path('users/', include('users.urls', namespace='users')),
+    path('blog/', include('blog.urls', namespace='blog')),
     path('quiz/', include('quiz.urls', namespace='quiz')),
 ]
 if settings.DEBUG:

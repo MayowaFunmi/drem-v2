@@ -111,7 +111,7 @@ $(document).ready(function() {
                 $('.result_box').show()                        
                 const scoreText = result_box.querySelector(".score_text");
                 //creating a new span tag and passing the user score number and total question number
-                let scoreTag = '<span>You got <p>'+ userScore +'</p> out of <p>'+ question.length +'</p></span>';
+                let scoreTag = '<h2>You got <strong>'+ userScore +'</strong> out of <strong>'+ question.length +'</strong></h2>';
                 scoreText.innerHTML = scoreTag;  //adding new span tag inside score_Text
             }
 
