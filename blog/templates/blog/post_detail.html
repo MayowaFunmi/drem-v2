@@ -62,6 +62,7 @@
                                     <li>0 Comment</li>
                                 {% endif %}
                                 <li> On {{ post.date }}</li>
+                                <li>{{ post.total_likes }} Like{{ post.total_likes|pluralize }}</li>
                             </ul>
                         </div>
                         <div class="blog_text">
@@ -71,9 +72,21 @@
                             <div class="blog_link"><a href="{% url 'blog:post_new' %}">New Post</a></div>
                             <div class="blog_link"><a href="{% url 'blog:post_list' %}">All Posts</a></div>
                             {% if request.user == post.author %}
-                                <div class="blog_link"><a href="{% url 'blog:post_edit' post.pk %}">Edit</a></div>
-                                <div class="blog_link"><a href="{% url 'blog:post_delete' post.pk %}">Delete</a></div>
+                                <div class="blog_link"><a href="{% url 'blog:post_edit' post.pk post.slug %}">Edit</a></div>
+                                <div class="blog_link"><a href="{% url 'blog:post_delete' post.pk post.slug %}">Delete</a></div>
                             {% endif %}
+                        </div>
+
+                        <div>
+                            <form action="{% url 'blog:like_post' post.id post.slug %}" method="POST">
+                                {% csrf_token %}
+                                {% if user.is_authenticated %}
+                                    <button class="contact_button trans_200" type="submit" name="post_id" value="{{ post.id }}">Like Post</button>
+                                    <strong>- {{ post.total_likes }} Like{{ post.total_likes|pluralize }}</strong>
+                                {% else %}
+                                <small><a href="{% url 'users:login' %}?next={{request.path}}">Please Login to like this post</a></small>
+                                {% endif %}
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -82,8 +95,8 @@
 
             <div class="col-lg-5">
                 <span>
-                                            <img src="{% static 'img/drem_logo.jpg' %}" alt="" style="max-width: 100%";>
-                                        </span>
+                    <img src="{% static 'img/drem_logo.jpg' %}" alt="" style="max-width: 100%";>
+                </span>
             </div>
 
             <!-- Start Comment Section -->

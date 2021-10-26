@@ -4,7 +4,7 @@
 {% block blog_new %}Add Post{% endblock blog_new %}
 {% block blog_new1 %}Add Post{% endblock blog_new1 %}
 
-{% block title %}DREM | Blog Forum{% endblock title %}
+{% block title %}DREM | Blog Category{% endblock title %}
 
 {% block blog_style %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/blog/bootstrap.min.css' %}" />
@@ -41,6 +41,7 @@
 
             <div class="col-lg-9">
                 <div class="blog_content">
+                    <h2>{{ posts.count }} post{{ posts.count|pluralize }} in category: {{ category }}</h2>
                     <!-- Add Blog Details -->
                     {% if posts %}
                     {% for post in posts %}
@@ -55,10 +56,7 @@
                             <ul>
                                 <li>By <a href="{% url 'users:user_profile' %}">{{ post.author }}</a></li>
                                 {% for category in post.categories.all %}
-                                <li>In
-                                    <a href="{% url 'blog:blog_category' category.name %}">
-                                        {{ category.name }}
-                                    </a></li>
+                                <li>In {{ category.name }}</li>
                                 {% endfor %}
                                 {% if post.number_of_comments %}
                                     {% with post.number_of_comments as total_comments %}
@@ -67,8 +65,7 @@
                                 {% else %}
                                     <li>0 Comment</li>
                                 {% endif %}
-                                <li> On {{ post.updated_on }}</li>
-                                <li>{{ post.total_likes }} Like{{ post.total_likes|pluralize }}</li>
+                                <li> On {{ post.date }}</li>
                             </ul>
                         </div>
                         <div class="blog_text">
@@ -136,7 +133,7 @@
                                 </div>
                                 <div class="latest_news_content">
                                     <div class="latest_news_date">06 March, 2018</div>
-                                    <div class="latest_news_title"><a href="#">{{ latest_post }}</a>
+                                    <div class="latest_news_title"><a href="#">How to pray the right way</a>
                                     </div>
                                 </div>
                             </div>
@@ -148,12 +145,18 @@
                         <div class="sidebar_title">Categories</div>
                         <div class="sidebar_list">
                             <ul>
-                                {% for category in categories %}
-                                <li>
-                                    <a class="d-flex flex-row align-items-start justify-content-start" href="#">
-                                        {{ category }}<span class="ml-auto">4</span></a>
-                                </li>
-                                {% endfor %}
+                                <li><a class="d-flex flex-row align-items-start justify-content-start" href="#">Bible
+                                        Stories<span class="ml-auto">4</span></a></li>
+                                <li><a class="d-flex flex-row align-items-start justify-content-start" href="#">Hope &
+                                        Faithful<span class="ml-auto">5</span></a></li>
+                                <li><a class="d-flex flex-row align-items-start justify-content-start" href="#">Play &
+                                        Church<span class="ml-auto">4</span></a></li>
+                                <li><a class="d-flex flex-row align-items-start justify-content-start"
+                                        href="#">Community<span class="ml-auto">4</span></a></li>
+                                <li><a class="d-flex flex-row align-items-start justify-content-start" href="#">Sermon &
+                                        Pray<span class="ml-auto">6</span></a></li>
+                                <li><a class="d-flex flex-row align-items-start justify-content-start"
+                                        href="#">Uncategorized<span class="ml-auto">3</span></a></li>
                             </ul>
                         </div>
                     </div>

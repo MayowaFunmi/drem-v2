@@ -67,6 +67,7 @@
                                     <ul>
                                         <li class="active"><a href="{% url 'base' %}">Home</a></li>
                                         <li><a href="{% url 'blog:post_list' %}">Blog</a></li>
+                                        <li><a href="{% url 'blog:post_new' %}">{% block blog_new %}{% endblock blog_new %}</a></li>
                                         <li><a href="#">Bible Institute</a></li>
                                         <li><a href="#">About</a></li>
                                         <li><a href="{% url 'users:contact_us' %}">Contact Us</a></li>
@@ -106,6 +107,7 @@
                 <ul>
                     <li class="active"><a href="{% url 'base' %}">Home</a></li>
                     <li><a href="{% url 'blog:post_list' %}">Blog</a></li>
+                    <li><a href="{% url 'blog:post_new' %}">{% block blog_new1 %}{% endblock blog_new1 %}</a></li>
                     <li><a href="#">Bible Institute</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="{% url 'users:contact_us' %}">Contact Us</a></li>

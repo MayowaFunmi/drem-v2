@@ -1,0 +1,80 @@
+{% extends 'users/base.html' %}
+
+{% load static %}
+{% block title %}DREM | Delete Post{% endblock title %}
+
+{% block blog_style %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/blog/bootstrap.min.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/blog/blog.css' %}" />
+{% endblock blog_style %}
+
+
+{% block quiz %}
+<div class="home">
+    <div class="home_background parallax-window" data-parallax="scroll" data-image-src="{% static 'img/prayer-bible.jpg' %}"
+        data-speed="0.8"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="home_container">
+                    <div class="home_content d-flex flex-row align-items-center justify-content-start">
+                        <div class="home_title" style="color: red;">Blog / Forum</div>
+                        <div class="home_breadcrumbs ml-auto">
+                            <ul class="breadcrumbs">
+                                <li><a href="{% url 'base' %}">Home</a></li>
+                                <li>Blog</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="blog">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-7">
+                <div class="blog_content">
+                    <div class="contact_title">Are you sure you want to delete this post?</div>
+                    <form class="contact_form" method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                            <select class="contact_input" name="ask">
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                        <button class="contact_button trans_200">Delete Post</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <span>
+                    <img src="{% static 'img/drem_logo.jpg' %}" alt="" style="max-width: 100%";>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock quiz %}
+
+{% block blog_script %}
+<script src="{% static 'js/blog/all_js.js' %}"></script>
+<script>eval(mod_pagespeed_w2$JNY6$Cn);</script>
+<script>eval(mod_pagespeed_OT2DLOXnSB);</script>
+<script>eval(mod_pagespeed_yeMiaDyUpM);</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"rayId":"6a0b090f0d171e71","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'></script>
+{% endblock blog_script %}
