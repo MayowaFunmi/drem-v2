@@ -1,0 +1,111 @@
+{% extends 'users/base.html' %}
+
+{% load static %}
+{% block title %}DREM | SBI Home{% endblock title %}
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/bootstrap.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/font-awesome.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/contact.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/contact_responsive.css' %}"/>
+    <style>
+        .messages {
+            background: #db6140;
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+            margin-top: 20px;
+        }
+
+        .text {
+            color: black;
+        }
+    </style>
+{% endblock style %}
+
+{% block content %}
+    <div class="new_page container">
+        <div>
+            {% if messages %}
+                {% for message in messages %}
+                    {% if message.tags == 'error' %}
+                        <div class="messages">
+                            {{ message }}
+                        </div>
+                    {% endif %}
+                    {% if message.tags == 'success' %}
+                        <div>{{ message }}</div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </div>
+        <center>
+            <h1>SOPHUS BIBLE INSTITUTE(S.B.I)</h1>
+        </center>
+        <div class="row">
+            <div class="col-lg-6">
+                <h2>...Coordinator's Welcome Note...</h2><br>
+                <div class="text">
+                    Welcome to SOPHUS BIBLE INSTITUTE, an online bible college arm of DESTINY RESCUE MISSION INT'L-DREM where wisdom is paramount.<br>
+                The institute came into being on April 1st, 2021 inline with the DREM INT'L missioner's passion to make the gospel spread far and wide.<br>
+                <h2>What's  meaning of the name SOPHUS?</h2>
+                SOPHUS is a Greek word which connotes 'WISDOM'. It has both male and female name. Sophus is the Male name while Sophia is for female name, both meaning WISDOM in English Language.<br>
+
+                1 Corinthians 1:22-24KJV<br>
+
+                22: For the Jews require a sign, and the Greeks seek after wisdom:<br>
+                23: But we preach Christ crucified, unto the Jews a stumblingblock, and unto the Greeks foolishness;<br>
+                24: But unto them which are called, both Jews and Greeks, Christ the power of God, and the wisdom of God.<br><br>
+
+                As the world revolves round, we are now in a digital age and God has made everything beautify for His own glory. So therefore, as Christians we must always align, update and upgrade ourselves to the various forms of technology.<br>
+
+                There are some believers craving to know more of God and wish to go to bible college but they're incapacitated via some factors such as time and money. This is one of the reasons for the birth of this institute, to make everyone knowledgeable and well trained, to be able to defend and protect their Faith.
+                So, at SOPHUS, neither time and money is a barrier, as the lecture days and time are programmed in a way that's comfortable. Also the fees are moderate.<br>
+
+                S.B.I is not for pastors or pastors-to-be alone, it's for all CHRISTIANS, either occupying an office in the vineyard or not.<br>
+
+                Courses Available Are: CERTIFICATE & DIPLOMA<br>
+
+                DURATION: 12weeks<br>
+
+                Join the heavenly ride with Christ today and you will never regret doing so in Jesus name. AMEN<br>
+
+                SHA-LOM<br>
+
+                DEAN OF ACADEMICS:<br>
+                EVANGELIST (MRS) F.O OBAKUNLE<br>
+                09055860342<br><br>
+
+                COORDINATOR:<br>
+                EVANGELIST (MR) E.O AKINYOOLA<br>
+                07067848348<br>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <h2>Application Form:</h2>
+                <button class="contact_button trans_200" id="application">Apply Here</button>
+
+                <div id="hide_form" style="display: none;">
+                    <h3>Please Enter Your Student Application Login Code:</h3>
+                    <form class="contact_form" method="post" action="{% url 'school:code_login' %}">
+                        {% csrf_token %}
+                        <input type="text" class="contact_input contacts_input_name" placeholder="Enter Your Login Code" name="login_code" required><br>
+                        <button class="contact_button trans_200">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block script %}
+<script src="{% static 'js/contact/easing.js' %}"></script>
+<script src="{% static 'js/contact/plugin-parallax.js' %}"></script>
+<script src="{% static 'js/contact/contact_custom.js' %}"></script>
+<script>
+$(document).ready(function(){
+  $('#application').click(function() {
+    $('#hide_form').show();
+  })
+});
+</script>
+{% endblock script %}

@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'users',
     'quiz',
     'blog',
+    'awards',
+    'bible_school',
 ]
 
 MIDDLEWARE = [

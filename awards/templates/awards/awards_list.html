@@ -1,0 +1,112 @@
+{% extends 'users/base.html' %}
+
+{% load static %}
+{% block blog_new %}Awards{% endblock blog_new %}
+{% block blog_new1 %}Awards{% endblock blog_new1 %}
+
+{% block title %}DREM | Awards Page{% endblock title %}
+
+{% block blog_style %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/blog/bootstrap.min.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/blog/blog.css' %}" />
+{% endblock blog_style %}
+
+
+{% block quiz %}
+<div class="home">
+    <div class="home_background parallax-window" data-parallax="scroll" data-image-src="{% static 'img/prayer-bible.jpg' %}"
+        data-speed="0.8"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="home_container">
+                    <div class="home_content d-flex flex-row align-items-center justify-content-start">
+                        <div class="home_title" style="color: red;">DREM | AWARDS</div>
+                        <div class="home_breadcrumbs ml-auto">
+                            <ul class="breadcrumbs">
+                                <li><a href="{% url 'base' %}">Home</a></li>
+                                <li>Awards</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="blog">
+    <div class="container">
+        <h2>DREM Team of the year Award List: </h2>
+        {% for award in awards %}
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="blog_image">
+                            <img src="{{ award.award_image_1.url }}" style="max-width: 100%">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="blog_image">
+                            <img src="{{ award.award_image_2.url }}" style="max-width: 100%">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="blog_content">
+                    <div class="blog_post">
+                        <h3>Name: <strong>{{ award.name }} ({{ award.title }})</strong></h3>
+                        <h3>Award: <strong>{{ award.award_title }}</strong></h3>
+                        <h3>Brief Profile: <strong>{{ award.brief_profile }}</strong></h3>
+                    </div>
+                </div>
+                <div class="blog_pages">
+                    <ul>
+                        <span class="step-links">
+                            {% if awards.has_previous %}
+                                <li class="page-item"><a class="page-link" href="?page={{ awards.previous_page_number }}">Previous</a></li>
+                            {% endif %}
+                            <span class="current">
+                                Page {{ awards.number }} of {{ awards.paginator.num_pages }}.
+                            </span>
+                            {% if awards.has_next %}
+                                <li class="page-item"><a class="page-link" href="?page={{ awards.next_page_number }}">Next</a></li>
+                            {% endif %}
+                        </span>
+                    </ul>
+                    {% if user.is_superuser %}
+                        <button class="contact_button trans_200">
+                            <a style="color: white;" href="{% url 'awards:delete_award' award.id %}">Delete</a>
+                        </button>
+                        <button class="contact_button trans_200">
+                            <a style="color: white;" href="{% url 'awards:create_award' %}">Add Award</a>
+                        </button>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock quiz %}
+
+{% block blog_script %}
+<script src="{% static 'js/blog/all_js.js' %}"></script>
+<script>eval(mod_pagespeed_w2$JNY6$Cn);</script>
+<script>eval(mod_pagespeed_OT2DLOXnSB);</script>
+<script>eval(mod_pagespeed_yeMiaDyUpM);</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"rayId":"6a0b090f0d171e71","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'></script>
+{% endblock blog_script %}

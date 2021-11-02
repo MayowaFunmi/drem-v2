@@ -24,13 +24,15 @@
     <header class="header">
 
         <div class="top_bar">
-            <div class="container">
+            <div class="container" style="padding-left: 0px; padding-right: 0px; margin-left: 0px; margin-right: 0px;">
                 <div class="row">
                     <div class="col top_bar_content d-flex flex-row align-items-center justify-content-start">
                         <div class="event_timer">
                             <ul class="timer">
                                 <li class="d-inline-flex">
-                                    {% if user.is_authenticated %}
+                                    {% if user.is_authenticated and user.is_staff %}
+                                        <div>You are logged in as <strong>{{ user.username }} (Admin)</strong></div>
+                                    {% elif user.is_authenticated and not user.is_staff %}
                                         <div>You are logged in as <strong>{{ user.username }}</strong></div>
                                     {% else %}
                                         <div>You are logged out!!!</div>
@@ -68,7 +70,7 @@
                                         <li class="active"><a href="{% url 'base' %}">Home</a></li>
                                         <li><a href="{% url 'blog:post_list' %}">Blog</a></li>
                                         <li><a href="{% url 'blog:post_new' %}">{% block blog_new %}{% endblock blog_new %}</a></li>
-                                        <li><a href="#">Bible Institute</a></li>
+                                        <li><a href="{% url 'school:sbi_home' %}">Bible Institute</a></li>
                                         <li><a href="#">About</a></li>
                                         <li><a href="{% url 'users:contact_us' %}">Contact Us</a></li>
                                         {% if user.is_authenticated and not user.is_staff %}
@@ -79,6 +81,7 @@
                                             <li><a href="{% url 'users:user_profile' %}">Profile</a></li>
                                             <li><a href="#">Change Password</a></li>
                                             <li><a href="{% url 'quiz:all_questions' %}">Quiz Section</a></li>
+                                            <li><a href="{% url 'awards:list_awards' %}">Awards</a></li>
                                             <li><a href="#">View Users</a></li>
                                             <li><a href="{% url 'users:logout' %}">Logout</a></li>
                                         {% else %}
@@ -108,7 +111,7 @@
                     <li class="active"><a href="{% url 'base' %}">Home</a></li>
                     <li><a href="{% url 'blog:post_list' %}">Blog</a></li>
                     <li><a href="{% url 'blog:post_new' %}">{% block blog_new1 %}{% endblock blog_new1 %}</a></li>
-                    <li><a href="#">Bible Institute</a></li>
+                    <li><a href="{% url 'school:sbi_home' %}">Bible Institute</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="{% url 'users:contact_us' %}">Contact Us</a></li>
                     {% if user.is_authenticated and not user.is_staff %}
@@ -119,6 +122,7 @@
                         <li><a href="{% url 'users:user_profile' %}">Profile</a></li>
                         <li><a href="#">Change Password</a></li>
                         <li><a href="{% url 'quiz:all_questions' %}">Quiz Section</a></li>
+                    <li><a href="{% url 'awards:list_awards' %}">Awards</a></li>
                         <li><a href="#">View Users</a></li>
                         <li><a href="{% url 'users:logout' %}">Logout</a></li>
                     {% else %}
@@ -241,7 +245,7 @@
               <div class="services_image"><img
                   src="{% static 'img/services_3.png' %}"
                   alt=""></div>
-              <div class="services_title">Perfect Law Of Liberty</div>
+                <div class="services_title"><a href="{% url 'awards:list_awards' %}">Awards</a></div>
             </div>
           </div>
 

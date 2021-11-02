@@ -1,0 +1,57 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{% block title %}DREM | Award Details{% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/bootstrap.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/font-awesome.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/contact.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/contact_responsive.css' %}"/>
+{% endblock style %}
+
+
+{% block content %}
+    <div class="new_page container">
+        <div class="contact_form_section">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                                <div class="col-md-4">
+                                    <h2>Award Profile</h2>
+                                    <div>
+                                        Title: {{ title }}<br>
+                                        Name: {{ name }}<br>
+                                        Award: {{ award_title }}<br>
+                                        Brief Profile: {{ brief_profile }}<br>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-8">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="contact_info_image">
+                                                Photo 1:
+                                                <img src="{{ award_image_1.url }}"><br>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="contact_info_image">
+                                                Photo 2:
+                                                <img src="{{ award_image_2.url }}"><br>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="contact_button trans_200">
+            <a href="{% url 'awards:list_awards' %}" style="color: white;">Show All Awards</a>
+        </button>
+    </div>
+{% endblock content %}

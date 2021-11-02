@@ -25,6 +25,8 @@ urlpatterns = [
     path('', users_views.base, name='base'),
     path('users/', include('users.urls', namespace='users')),
     path('blog/', include('blog.urls', namespace='blog')),
+    path('school/', include('bible_school.urls', namespace='school')),
+    path('awards/', include('awards.urls', namespace='awards')),
     path('quiz/', include('quiz.urls', namespace='quiz')),
 ]
 if settings.DEBUG:

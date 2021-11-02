@@ -1,0 +1,81 @@
+{% extends 'users/base.html' %}
+
+{% load static %}
+{% block title %}DREM | Awards Page{% endblock title %}
+
+{% block blog_style %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/blog/bootstrap.min.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/blog/blog.css' %}" />
+{% endblock blog_style %}
+
+
+{% block quiz %}
+<div class="home">
+    <div class="home_background parallax-window" data-parallax="scroll" data-image-src="{% static 'img/prayer-bible.jpg' %}"
+        data-speed="0.8"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="home_container">
+                    <div class="home_content d-flex flex-row align-items-center justify-content-start">
+                        <div class="home_title" style="color: red;">DREM / Awards</div>
+                        <div class="home_breadcrumbs ml-auto">
+                            <ul class="breadcrumbs">
+                                <li><a href="{% url 'base' %}">Home</a></li>
+                                <li>Awards</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="blog">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-7">
+                <div class="blog_content">
+                    <h2>Add New Award</h2>
+                    <form class="contact_form" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="text" class="contact_input contacts_input_name" placeholder="Enter the recipient's title, e.g Mr, Mrs, Pastor, Bishop, Sis, Bro, etc" name="title" required><br>
+                        <input type="text" class="contact_input contacts_input_name" placeholder="Enter the full name of the recipient of the award" name="name" required><br>
+                        <input type="text" class="contact_input contacts_input_name" placeholder="Enter the title/type/name of the award given" name="award_title" required><br>
+                        <input type="file" class="contact_input contacts_input_name" name="award_image_1" required><br>
+                        <input type="file" class="contact_input contacts_input_name" name="award_image_2" required><br>
+                        <textarea id="contact_text_area" placeholder="Type your post here..." class="contact_text" name="brief_profile"></textarea>
+
+                        <button class="contact_button trans_200">Add Award</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <span>
+                    <img src="{% static 'img/drem_logo.jpg' %}" alt="" style="max-width: 100%";>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock quiz %}
+
+{% block blog_script %}
+<script src="{% static 'js/blog/all_js.js' %}"></script>
+<script>eval(mod_pagespeed_w2$JNY6$Cn);</script>
+<script>eval(mod_pagespeed_OT2DLOXnSB);</script>
+<script>eval(mod_pagespeed_yeMiaDyUpM);</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"rayId":"6a0b090f0d171e71","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'></script>
+{% endblock blog_script %}

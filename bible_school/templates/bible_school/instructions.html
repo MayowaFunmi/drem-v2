@@ -1,0 +1,56 @@
+{% extends 'users/base.html' %}
+
+{% load static %}
+{% block title %}DREM | SBI Instructions{% endblock title %}
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/bootstrap.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/font-awesome.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/contact.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/contact_responsive.css' %}"/>
+{% endblock style %}
+
+{% block content %}
+    <div class="new_page container">
+        <center>
+            <h1>WELCOME TO SOPHUS BIBLE INSTITUTE(S.B.I)</h1>
+            <h3>INSTRUCTIONS FOR APPLICATION</h3><br>
+            <p>Please follow the instructions carefully before filling the application form</p>
+        </center>
+        <div class="row">
+            <div class="col-lg-6">
+                <div>
+                    <ol>
+                        <li>Click on "Register" in the navigation bar to register on this site. If you have already registered and have username and password, skip this step.</li>
+                        <li>Once registered, Click "Login" in the navigation bar to login to the site using your username and password.</li>
+                        <li>Click on "Bible Institute" in the navigation bar to go to Sophus Bible Institute Page</li>
+                        <li>Read the coordinator's welcome note. Scroll down and click on the "Application" Button. You will then be asked to enter your Application login code.</li>
+                        <li>Enter your Login code and click "Submit" button. You will be redirected to the Bible Institute Application Form.</li>
+                        <li>
+                            Fill the form appropriately and submit.<br>
+                            <em>
+                                Note: In the Application form, the last box to check is "Obedience", to indicate your willingness to obey the rules and regulations pf the Institute.<br>
+                                Anyone who doesn't check the box will have his/her form rejected.
+                            </em>
+                        </li>
+                        <li>Upon successful submission of your form, you will be redirected to the page showing you the summary of your application details.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <h2>Click below to access the application form</h2>
+                <button class="contact_button trans_200">
+                    <a style="color: white;" href="{% url 'school:apply' %}">
+                        Application Form
+                    </a>
+                </button>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block script %}
+<script src="{% static 'js/contact/easing.js' %}"></script>
+<script src="{% static 'js/contact/plugin-parallax.js' %}"></script>
+<script src="{% static 'js/contact/contact_custom.js' %}"></script>
+{% endblock script %}

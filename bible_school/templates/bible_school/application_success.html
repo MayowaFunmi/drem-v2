@@ -1,0 +1,60 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{% block title %}SBI | Application Successful{% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/bootstrap.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/font-awesome.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/contact.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/contact_responsive.css' %}"/>
+{% endblock style %}
+
+
+{% block content %}
+    <div class="new_page container">
+        <div class="contact_form_section">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                                <div class="col-md-6">
+                                    <h2>Dear {{ title }} {{ user.first_name }} {{ user.last_name}}, Your application was successful!!</h2>
+                                    <p>Take time to review your information you provided</p>
+                                    <div>
+                                        <p>
+                                            Your course of study: {{ course_of_study }}<br>
+                                            Your country of residence: {{ country_of_residence }}<br>
+                                            Your state of residence: {{ state_or_city_1 }}<br>
+                                            Your residential address: {{ residential_address }}<br>
+                                            Your country of origin: {{ country_of_origin }}<br>
+                                            Your state of origin: {{ state_or_city_2 }}<br>
+                                            Your permanent address: {{ permanent_address }}<br>
+                                            Your phone number: {{ phone_number }}<br>
+                                            Your place of birth: {{ place_of_birth }}<br>
+                                            Your marital status: {{ marital_status }}<br>
+                                            Your gender: {{ gender }}<br>
+                                            Name of your spouse: {{ name_of_spouse }}<br>
+                                            Number of children: {{ number_of_children }}<br>
+                                            Age bracket of children: {{ children_age_bracket }}<br>
+                                            Number of years you've been born again: {{ years_born_again }}<br>
+                                            Your salvation experience: {{ salvation_experience }}<br>
+                                            Have you ever been disciplined by your church for any act of immorality?  Give reasons if yes: {{ discplined }}<br>
+                                            Share your ministerial experience/any post held: {{ ministry_experience }}<br>
+                                            Your spiritual mentor: {{ spiritual_mentor }}<br>
+                                            Your pledge to obey the rules and regulations of S. B.I: {{ obedience }}<br>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="contact_info_image">
+                                        <img src="{% static 'img/drem_logo.jpg' %}" alt="" style="max-width: 100%";>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

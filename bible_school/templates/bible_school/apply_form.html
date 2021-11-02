@@ -1,0 +1,178 @@
+{% extends 'users/base.html' %}
+
+{% load static %}
+{% block title %}SBI | APPLICATION FORM{% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/bootstrap.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/font-awesome.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/contact.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact/contact_responsive.css' %}"/>
+    <style>
+        label {
+            font-weight: bold;
+        }
+    </style>
+{% endblock style %}
+
+
+{% block content %}
+    <div class="new_page container">
+        <div class="contact_form_section">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="contact_title">
+                            <center>
+                                <h3>APPLICATION FORM</h3>
+                                <p>Fill the form below to apply for the bible school</p>
+                                <div>
+                                    {% if messages %}
+                                        {% for message in messages %}
+                                            {% if message.tags == 'error' %}
+                                                <div class="alert alert-danger" style="margin-top:10px">
+                                                    {{ message }}
+                                                </div>
+                                            {% endif %}
+                                            {% if message.tags == 'success' %}
+                                                <div class="alert alert-success" style="margin-top:10px">{{ message }}</div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                            </center>
+                        </div>
+                        <form class="contact_form" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <center>
+                                        <h3>Your Bio Data:</h3>
+                                    </center>
+                                    <h6>Select Your Title:</h6>
+                                    <select class="contact_input" name="title">
+                                        <option value="Pastor">Pastor</option>
+                                        <option value="Evangelist">Evangelist</option>
+                                        <option value="Deacon">Deacon</option>
+                                        <option value="Deaconess">Deaconess</option>
+                                        <option value="Mrs">Mrs</option>
+                                        <option value="Miss">Miss</option>
+                                        <option value="Mr">Mr</option>
+                                        <option value="Chief">Chief</option>
+                                    </select>
+                                    <input type="text" class="contact_input contacts_input_name" placeholder="Enter Your Course Of Study" name="course_of_study" required><br>
+                                    <input type="text" class="contact_input contacts_input_name" placeholder="Enter Your Country Of Residence" name="country_of_residence" required><br>
+                                    <input type="text" class="contact_input contacts_input_name" placeholder="Enter Your State of Residence" name="state_or_city_1" required><br>
+                                    <input type="text" class="contact_input contacts_input_name" placeholder="Enter Your Residential Address" name="residential_address" required><br>
+                                    <input type="text" class="contact_input contacts_input_name" placeholder="Enter Your Country Of Origin" name="country_of_origin" required><br>
+                                    <input type="text" class="contact_input contacts_input_name" placeholder="Enter Your State of Residence" name="state_or_city_2" required><br>
+                                    <input type="text" class="contact_input contacts_input_name" placeholder="Enter Your Permanent Address" name="permanent_address" required><br>
+                                    <input type="text" class="contact_input contacts_input_name" placeholder="Enter Your Phone Number" name="phone_number" required><br>
+                                    <input type="text" class="contact_input contacts_input_name" placeholder="Enter Your Place Of Birth" name="place_of_birth" required><br>
+                                    <h6>Your Marital Status:</h6>
+                                    <select class="contact_input" name="marital_status">
+                                        <option value="Single">Single</option>
+                                        <option value="Married">Married</option>
+                                        <option value="In A Relationship">In A Relationship</option>
+                                        <option value="Widow">Widow</option>
+                                        <option value="Separated">Separated</option>
+                                        <option value="Divorced">Divorced</option>
+                                        <option value="Remarried">Remarried</option>
+                                    </select>
+                                    <h6>Gender:</h6>
+                                    <select class="contact_input" name="gender">
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+                                    <input type="text" class="contact_input contacts_input_name" placeholder="Name Of Your Spouse, Leave Blank If Unmarried" name="name_of_spouse"><br>
+                                    <h6>Number of Children? Enter 0 If None:</h6>
+                                    <input type="text" class="contact_input contacts_input_name" placeholder="Number of Children? Enter 0 If None" name="number_of_children" value="0"><br>
+                                    <h6>Age Bracket of Children (if any):</h6>
+                                    <select class="contact_input" name="children_age_bracket">
+                                        <option value="0">0</option>
+                                        <option value="1 - 5">1 - 5</option>
+                                        <option value="6 - 10">6 - 10</option>
+                                        <option value="11 - 20">11 - 20</option>
+                                        <option value="Above 20">Above 20</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <center>
+                                        <h3>Your Spiritual Life:</h3>
+                                    </center>
+                                    <label>For how long have you been born-again Christian according to John 3:1-7?:</label>
+                                    <input type="text" class="contact_input contacts_input_name" placeholder="For how long have you been born-again Christian according to John 3:1-7?" name="years_born_again" required><br>
+
+                                    <textarea placeholder="Share your salvation experience..." class="contact_text" name="salvation_experience"></textarea>
+
+                                    <label>Have you receive the baptism of Holy Spirit according to Acts 2:4?:</label>
+                                    <select class="contact_input" name="spirit_baptism">
+                                        <option value="True">Yes</option>
+                                        <option value="False">No</option>
+                                    </select>
+                                    <label>Which spiritual gifts do you have according to 1 Corinthians 12 etc.?:</label>
+                                    <input type="text" class="contact_input contacts_input_name" placeholder="Which spiritual gifts do you have according to 1 Corinthians 12 etc.?" name="spiritual_gifts" required><br>
+
+                                    <label>Fruits of the spirit manifesting in your life according to Galatians 5:22-23:</label>
+                                    <input type="text" class="contact_input contacts_input_name" placeholder="Fruits of the spirit manifesting in your life according to Galatians 5:22-23" name="spiritual_fruit" required><br>
+
+                                    <label>State if you're currently a teacher/evangelist/prophet/pastor/any other one in your assembly:</label>
+                                    <input type="text" class="contact_input contacts_input_name" placeholder="State if you're currently a teacher/evangelist/prophet/pastor/any other one in your assembly" name="ministry_gift" required><br>
+
+                                    <label>Did you have any physical or emotional problem that might impair your studies in this institute?:</label>
+                                    <select class="contact_input" name="disability">
+                                        <option value="True">Yes</option>
+                                        <option value="False">No</option>
+                                    </select>
+
+                                    <label>Have you ever been disciplined by your church for any act of immorality? Give reasons if yes.:</label>
+                                    <textarea placeholder="Have you ever been disciplined by your church for any act of immorality? Give reasons if yes." class="contact_text" name="discplined"></textarea>
+
+                                    <label>Share your ministerial experience/any post held:</label>
+                                    <textarea placeholder="Share your ministerial experience/any post held" class="contact_text" name="ministry_experience"></textarea>
+
+                                    <label>Who is your spiritual mentor and Role Model?:</label>
+                                    <input type="text" class="contact_input contacts_input_name" placeholder="Who is your spiritual mentor and Role Model?" name="spiritual_mentor" required><br>
+                                    <h6>Are you ready to abide by the rules and regulation of S.B.I?:</h6>
+                                    <select class="contact_input" name="obedience">
+                                        <option value="True">Yes</option>
+                                        <option value="False">No</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button class="contact_button trans_200">Submit</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/contact/easing.js' %}"></script>
+<script src="{% static 'js/contact/plugin-parallax.js' %}"></script>
+<script src="{% static 'js/contact/contact_custom.js' %}"></script>
+<script>
+    function showPassword() {
+    var x = document.getElementById('password');
+    if (x.type === 'password') {
+        x.type = 'text';
+    } else {
+        x.type = 'password'
+    }
+};
+
+function showPassword2() {
+    var x = document.getElementById('password2');
+    if (x.type === 'password') {
+        x.type = 'text';
+    } else {
+        x.type = 'password'
+    }
+}
+</script>
+{% endblock script %}
