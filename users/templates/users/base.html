@@ -74,14 +74,14 @@
                                         <li><a href="{% url 'users:contact_us' %}">Contact Us</a></li>
                                         {% if request.user.is_authenticated and not request.user.is_staff %}
                                             <li><a href="{% url 'users:user_profile' request.user.id %}">Profile</a></li>
-                                            <li><a href="#">Change Password</a></li>
+                                            <li><a href="{% url 'users:change_password' %}">Change Password</a></li>
                                             <li><a href="{% url 'users:logout' %}">Logout</a></li>
                                         {% elif request.user.is_authenticated and request.user.is_staff %}
                                             <li><a href="{% url 'users:user_profile' request.user.id %}">Profile</a></li>
-                                            <li><a href="#">Change Password</a></li>
+                                            <li><a href="{% url 'users:change_password' %}">Change Password</a></li>
                                             <li><a href="{% url 'quiz:all_questions' %}">Quiz Section</a></li>
                                             <li><a href="{% url 'awards:list_awards' %}">Awards</a></li>
-                                            <li><a href="#">View Users</a></li>
+                                            <!--<li><a href="#">View Users</a></li>-->
                                             <li><a href="{% url 'users:logout' %}">Logout</a></li>
                                         {% else %}
                                             <li><a href="{% url 'users:signup' %}">Register</a></li>
@@ -114,14 +114,14 @@
                     <li><a href="{% url 'users:contact_us' %}">Contact Us</a></li>
                     {% if request.user.is_authenticated and not request.user.is_staff %}
                         <li><a href="{% url 'users:user_profile' request.user.id %}">Profile</a></li>
-                        <li><a href="#">Change Password</a></li>
+                        <li><a href="{% url 'users:change_password' %}">Change Password</a></li>
                         <li><a href="{% url 'users:logout' %}">Logout</a></li>
                     {% elif request.user.is_authenticated and request.user.is_staff %}
                         <li><a href="{% url 'users:user_profile' request.user.id %}">Profile</a></li>
-                        <li><a href="#">Change Password</a></li>
+                        <li><a href="{% url 'users:change_password' %}">Change Password</a></li>
                         <li><a href="{% url 'quiz:all_questions' %}">Quiz Section</a></li>
                     <li><a href="{% url 'awards:list_awards' %}">Awards</a></li>
-                        <li><a href="#">View Users</a></li>
+                        <!--<li><a href="#">View Users</a></li>-->
                         <li><a href="{% url 'users:logout' %}">Logout</a></li>
                     {% else %}
                         <li><a href="{% url 'users:signup' %}">Register</a></li>
