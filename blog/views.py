@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import PermissionDenied
 from django.core.paginator import Paginator
+from django.db.models import Q
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
@@ -17,6 +18,21 @@ def post_list(request):
     page = request.GET.get('page')
     posts = paginator.get_page(page)
     categories = Category.objects.all()
+
+    if request.method == 'POST':
+        query = request.POST.get('q', None)
+        submit_button = request.POST.get('submit')
+
+        if query is not None:
+            lookups = Q(title__icontains=query) | Q(body__icontains=query)
+            results = Post.objects.filter(lookups).distinct()
+            print(results)
+            context = {
+                'query': query,
+                'results': results,
+                'submit_button': submit_button
+            }
+            return render(request, 'blog/search_results.html', context)
     context = {
         'posts': posts,
         'categories': categories,

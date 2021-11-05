@@ -803,35 +803,35 @@ section {
     font-size: 12px !important;
     font-weight: 500 !important;
     font-style: italic;
-    color: #8e8e8e !important
+    color: black !important
 }
 
 .sidebar_search_input:-moz-placeholder {
     font-size: 12px !important;
     font-weight: 500 !important;
     font-style: italic;
-    color: #8e8e8e !important
+    color: black !important
 }
 
 .sidebar_search_input::-moz-placeholder {
     font-size: 12px !important;
     font-weight: 500 !important;
     font-style: italic;
-    color: #8e8e8e !important
+    color: black !important
 }
 
 .sidebar_search_input:-ms-input-placeholder {
     font-size: 12px !important;
     font-weight: 500 !important;
     font-style: italic;
-    color: #8e8e8e !important
+    color: black !important
 }
 
 .sidebar_search_input::input-placeholder {
     font-size: 12px !important;
     font-weight: 500 !important;
     font-style: italic;
-    color: #8e8e8e !important
+    color: black !important
 }
 
 .sidebar_title {
@@ -1429,7 +1429,7 @@ option {
 	font-size: 12px !important;
 	font-weight: 500 !important;
 	font-style: italic;
-	color: #a4a4a4 !important;
+	color: black !important;
 }
 .contact_input:-moz-placeholder,
 .contact_text:-moz-placeholder
@@ -1437,7 +1437,7 @@ option {
 	font-size: 12px !important;
 	font-weight: 500 !important;
 	font-style: italic;
-	color: #a4a4a4 !important;
+	color: black !important;
 }
 .contact_input::-moz-placeholder,
 .contact_text::-moz-placeholder
@@ -1445,7 +1445,7 @@ option {
 	font-size: 12px !important;
 	font-weight: 500 !important;
 	font-style: italic;
-	color: #a4a4a4 !important;
+	color: black !important;
 }
 .contact_input:-ms-input-placeholder,
 .contact_text:-ms-input-placeholder
@@ -1453,7 +1453,7 @@ option {
 	font-size: 12px !important;
 	font-weight: 500 !important;
 	font-style: italic;
-	color: #a4a4a4 !important;
+	color: black !important;
 }
 .contact_input::input-placeholder,
 .contact_text::input-placeholder
@@ -1461,7 +1461,7 @@ option {
 	font-size: 12px !important;
 	font-weight: 500 !important;
 	font-style: italic;
-	color: #a4a4a4 !important;
+	color: black !important;
 }
 .contact_button
 {

@@ -11,6 +11,5 @@ urlpatterns = [
     path('<int:id>/<str:slug>/delete/', views.post_delete, name='post_delete'),
     path('add_category/', views.add_category, name='add_category'),
     path("<category>/", views.blog_category, name="blog_category"),
-    path('like/<int:id>/<str:slug>/', views.like_view, name='like_post')
-
+    path('like/<int:id>/<str:slug>/', views.like_view, name='like_post'),
 ]

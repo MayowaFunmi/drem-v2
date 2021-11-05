@@ -855,7 +855,7 @@ option {
 	font-size: 12px !important;
 	font-weight: 500 !important;
 	font-style: italic;
-	color: #a4a4a4 !important;
+	color: black !important;
 }
 .contact_input:-moz-placeholder,
 .contact_text:-moz-placeholder
@@ -863,7 +863,7 @@ option {
 	font-size: 12px !important;
 	font-weight: 500 !important;
 	font-style: italic;
-	color: #a4a4a4 !important;
+	color: black !important;
 }
 .contact_input::-moz-placeholder,
 .contact_text::-moz-placeholder
@@ -871,7 +871,7 @@ option {
 	font-size: 12px !important;
 	font-weight: 500 !important;
 	font-style: italic;
-	color: #a4a4a4 !important;
+	color: black !important;
 } 
 .contact_input:-ms-input-placeholder,
 .contact_text:-ms-input-placeholder
@@ -879,7 +879,7 @@ option {
 	font-size: 12px !important;
 	font-weight: 500 !important;
 	font-style: italic;
-	color: #a4a4a4 !important;
+	color: black !important;
 }
 .contact_input::input-placeholder,
 .contact_text::input-placeholder
@@ -887,7 +887,7 @@ option {
 	font-size: 12px !important;
 	font-weight: 500 !important;
 	font-style: italic;
-	color: #a4a4a4 !important;
+	color: black !important;
 }
 .contact_button
 {

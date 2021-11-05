@@ -4,7 +4,7 @@
 {% block blog_new %}Add Post{% endblock blog_new %}
 {% block blog_new1 %}Add Post{% endblock blog_new1 %}
 
-{% block title %}DREM | Blog Forum{% endblock title %}
+{% block title %}DREM | Post Search Results{% endblock title %}
 
 {% block blog_style %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/blog/bootstrap.min.css' %}" />
@@ -41,9 +41,10 @@
 
             <div class="col-lg-9">
                 <div class="blog_content">
+                    <h2>{{ results.count }} post{{ results.count|pluralize }} found for {{ query }}: </h2>
                     <!-- Add Blog Details -->
-                    {% if posts %}
-                    {% for post in posts %}
+                    {% if results %}
+                    {% for post in results %}
                     <div class="blog_post">
                         <div class="blog_image">
                             <img src="{{ post.author.photo.url }}">
@@ -55,10 +56,7 @@
                             <ul>
                                 <li>By <a href="{% url 'users:user_profile' post.author.id %}">{{ post.author }}</a></li>
                                 {% for category in post.categories.all %}
-                                <li>In
-                                    <a href="{% url 'blog:blog_category' category.name %}">
-                                        {{ category.name }}
-                                    </a></li>
+                                <li>In {{ category.name }}</li>
                                 {% endfor %}
                                 {% if post.number_of_comments %}
                                     {% with post.number_of_comments as total_comments %}
@@ -67,8 +65,7 @@
                                 {% else %}
                                     <li>0 Comment</li>
                                 {% endif %}
-                                <li> On {{ post.updated_on }}</li>
-                                <li>{{ post.total_likes }} Like{{ post.total_likes|pluralize }}</li>
+                                <li> On {{ post.date }}</li>
                             </ul>
                         </div>
                         <div class="blog_text">
@@ -110,54 +107,6 @@
                 </div>
             </div>
 
-            <div class="col-lg-3 sidebar_col">
-                <div class="blog_sidebar">
-
-                    <div class="sidebar_section">
-                        <div class="sidebar_search">
-                            <form method="POST">
-                                {% csrf_token %}
-                                <input class="sidebar_search_input" type="search" placeholder="Search Posts" name="q" required>
-                                <input type="submit" name="submit" value="Search" class="sidebar_search_button d-flex flex-column align-items-center justify-content-center">
-                                <!--
-                                <button type="submit" name="submit" class="sidebar_search_button d-flex flex-column align-items-center justify-content-center">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </button>
-                                -->
-                            </form>
-                        </div>
-                    </div>
-
-                    <div class="sidebar_section">
-                        <div class="sidebar_title">Latest Post</div>
-                        <div class="latest_news_container">
-
-                            <div class="latest_news d-flex flex-row align-items-start justify-content-start">
-                                <div class="latest_news_content">
-                                    <div class="latest_news_title"><a href="/blog/{{ id }}/{{ slug }}">{{ title }}</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="sidebar_section">
-                        <div class="sidebar_title">Categories</div>
-                        <div class="sidebar_list">
-                            <ul>
-                                {% for category in categories %}
-                                <li>
-                                    <a class="d-flex flex-row align-items-start justify-content-start" href="{% url 'blog:blog_category' category.name %}">
-                                        {{ category }}<span class="ml-auto"></span></a>
-                                </li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
         </div>
     </div>
 </div>
