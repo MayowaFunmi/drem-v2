@@ -53,7 +53,7 @@
                         </div>
                         <div class="blog_meta">
                             <ul>
-                                <li>By <a href="{% url 'users:user_profile' %}">{{ post.author }}</a></li>
+                                <li>By <a href="{% url 'users:user_profile' post.author.id %}">{{ post.author }}</a></li>
                                 {% for category in post.categories.all %}
                                 <li>In
                                     <a href="{% url 'blog:blog_category' category.name %}">
@@ -125,18 +125,12 @@
                     </div>
 
                     <div class="sidebar_section">
-                        <div class="sidebar_title">Latest News</div>
+                        <div class="sidebar_title">Latest Post</div>
                         <div class="latest_news_container">
 
                             <div class="latest_news d-flex flex-row align-items-start justify-content-start">
-                                <div class="latest_news_image_container">
-                                    <div class="latest_news_image">
-                                        <img src="" alt="">
-                                    </div>
-                                </div>
                                 <div class="latest_news_content">
-                                    <div class="latest_news_date">06 March, 2018</div>
-                                    <div class="latest_news_title"><a href="#">{{ latest_post }}</a>
+                                    <div class="latest_news_title"><a href="/blog/{{ id }}/{{ slug }}">{{ title }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -150,41 +144,14 @@
                             <ul>
                                 {% for category in categories %}
                                 <li>
-                                    <a class="d-flex flex-row align-items-start justify-content-start" href="#">
-                                        {{ category }}<span class="ml-auto">4</span></a>
+                                    <a class="d-flex flex-row align-items-start justify-content-start" href="{% url 'blog:blog_category' category.name %}">
+                                        {{ category }}<span class="ml-auto"></span></a>
                                 </li>
                                 {% endfor %}
                             </ul>
                         </div>
                     </div>
 
-                    <div class="sidebar_section">
-                        <div class="sidebar_title">Archives</div>
-                        <div class="sidebar_list">
-                            <ul>
-                                <li><a href="#">November 2017</a></li>
-                                <li><a href="#">December 2017</a></li>
-                                <li><a href="#">January 2018</a></li>
-                                <li><a href="#">February 2018</a></li>
-                                <li><a href="#">March 2018</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="sidebar_section">
-                        <div class="sidebar_quote">
-                            <div class="sidebar_quote_background"
-                                style="background-image:url()">
-                            </div>
-                            <div class="sidebar_quote_char">
-                                <img src="" alt="">
-                            </div>
-                            <div class="sidebar_quote_text">4 One thing I ask from the LORD, this only do I
-                                seek: that I may dwell in the house of the LORD all the days of my life, to gaze
-                                on the beauty of the LORD and to seek him in his temple.</div>
-                            <div class="sidebar_quote_source">Psalm 27:4</div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -198,13 +165,5 @@
 <script>eval(mod_pagespeed_OT2DLOXnSB);</script>
 <script>eval(mod_pagespeed_yeMiaDyUpM);</script>
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-23581568-13');
-</script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"rayId":"6a0b090f0d171e71","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'></script>
 {% endblock blog_script %}

@@ -18,9 +18,11 @@
                     <div class="col">
                         <div class="row">
                                 <div class="col-md-6">
+                                    {% if user == request.user and request.user.is_authenticated %}
                                     <h2>Welcome, {{ user.first_name }} {{ user.last_name }}...</h2>
+                                    <p style="text-align: center">Below Are Your Registration Details:</p>
+                                    {% endif %}
                                     <div>
-                                        <p style="text-align: center">Below Are Your Registration Details:</p>
                                         <p>
                                             <strong>Username:</strong> {{ user.username }}<br>
                                             <strong>Email:</strong> {{ user.email }}<br>
@@ -49,9 +51,10 @@
                 </div>
             </div>
         </div>
-
+        {% if user == request.user and request.user.is_authenticated %}
         <button class=" button contact_button trans_200">
             <a href="{% url 'users:update_user' %}">Update Profile</a>
         </button>
+        {% endif %}
     </div>
 {% endblock content %}

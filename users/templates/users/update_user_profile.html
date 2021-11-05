@@ -42,13 +42,12 @@
                                     </select>
                                     <input type="text" class="contact_input contacts_input_name" placeholder="Enter Your Address" name="address" value="{{ user.address }}" required><br>
                                     <input type="text" class="contact_input contacts_input_name" placeholder="Enter Your Phone Number" name="phone_number" value="{{ user.phone_number }}" required><br>
-                                    <h6>Current Date of Birth is: {{ user.date_of_birth }}:</h6>
-                                    <input type="hidden" name="date" value="{{ user.date_of_birth }}">
+                                    <h6>Registered Date of Birth is:</h6>
+                                    <input type="text" class="contact_input contacts_input_name" name="date_of_birth" value="{{ user.date_of_birth|date:'d/m/Y' }}" readonly><br>
                                     <h6>If there's an error, click below to update:</h6>
-                                    <input type="date" class="contact_input contacts_input_name" name="date_of_birth"><br>
+                                    <input type="date" class="contact_input contacts_input_name" name="dob"><br>
 
                                     <h6>Current Profile Picture: </h6>
-                                    <input type="hidden" name="picture" value="{{ user.photo }}">
                                     <div class="contact_info_image">
                                         <img src="{{ user.photo.url }}" style="width: 100px; height=100px; border-radius: 20px;"><br>
                                     </div>

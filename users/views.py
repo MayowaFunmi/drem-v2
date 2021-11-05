@@ -81,49 +81,6 @@ def user_signup(request):
     return render(request, 'users/user_signup.html')
 
 
-'''
-class UserSignUpView(View):
-    form_class = CustomUserCreationForm
-    template_name = 'users/user_signup.html'
-
-    def get(self, request, *args, **kwargs):
-        form = self.form_class()
-        return render(request, self.template_name, {'form': form})
-
-    def post(self, request, *args, **kwargs):
-        form = self.form_class(request.POST, request.FILES)
-        if form.is_valid():
-            form.save(commit=True)
-
-            photo = request.FILES['photo']
-            fs = FileSystemStorage()
-            photo_filename = fs.save(photo.name, photo)
-
-            context = {
-                'username': form.cleaned_data['username'],
-                'email': form.cleaned_data['email'],
-                'first_name': form.cleaned_data['first_name'],
-                'last_name': form.cleaned_data['last_name'],
-                'middle_name': form.cleaned_data['middle_name'],
-                'born_again': form.cleaned_data['born_again'],
-                'church_name': form.cleaned_data['church_name'],
-                'marital_status': form.cleaned_data['marital_status'],
-                'address': form.cleaned_data['address'],
-                'phone_number': form.cleaned_data['phone_number'],
-                'date_of_birth': form.cleaned_data['date_of_birth'],
-                'favourite_bible_verse': form.cleaned_data['favourite_bible_verse'],
-                'about_me': form.cleaned_data['about_me'],
-                'photo': fs.url(photo_filename),
-            }
-            return render(request, 'users/signup_success.html', context)
-
-        else:
-            print(form.errors)
-        return render(request, self.template_name, {'form': form})
-
-'''
-
-
 # login view
 def user_login(request):
     if request.method == 'POST':
@@ -141,40 +98,13 @@ def user_login(request):
     return render(request, 'users/login.html')
 
 
-'''
-def user_login(request):
-    if request.method == 'POST':
-        form = LoginForm(request.POST)
-
-        if form.is_valid():
-            cd = form.cleaned_data
-            user = authenticate(request, username=cd['username'], password=cd['password'])
-
-            if user is not None:
-                if user.is_active:
-                    login(request, user)
-                    return render(request, 'users/base.html')
-            else:
-                messages.error(request, 'Incorrect Username or Password')
-                return render(request, 'users/login.html', {'form': form})
-
-    else:
-        form = LoginForm()
-    return render(request, 'users/login.html', {'form': form})
-'''
-
 # user Profile
+def user_profile(request, id):
+    user = get_object_or_404(User, id=id)
+    return render(request, 'users/user_profile.html', {'user': user})
 
-
-@login_required
-def user_profile(request):
-    if User.objects.filter(username=request.user.username).exists():
-        user = User.objects.get(username=request.user.username)
-        return render(request, 'users/user_profile.html', {'user': user})
 
 # logout view
-
-
 @login_required
 def user_logout(request):
     logout(request)
@@ -201,27 +131,6 @@ def contact_us(request):
     return render(request, 'users/contact_us.html')
 
 
-'''
-def contact_us(request):
-    if request.method == 'POST':
-        form = ContactUsForm(request.POST)
-
-        try:
-            if form.is_valid():
-                form.save(commit=True)
-
-                return render(request, 'users/contact_us_success.html')
-        except:
-            return render(request, 'users/errors.html')
-
-    else:
-        form = ContactUsForm()
-
-    return render(request, 'users/contact_us.html', {'form': form})
-
-'''
-
-
 # testimony form
 @login_required
 def testimony(request):
@@ -235,35 +144,6 @@ def testimony(request):
         }
         return render(request, 'users/testimony_detail.html', context)
     return render(request, 'users/testimony_form.html', {'user': user})
-
-
-'''
-@login_required
-def testimony(request):
-    user = request.user
-    if request.method == 'POST':
-        form = TestimonyForm(request.POST)
-
-        try:
-            if form.is_valid():
-                myform = form.save(commit=False)
-                myform.user = request.user
-                myform.save()
-
-                context = {
-                    'user': request.user.username,
-                    'testimony': form.cleaned_data['testimony']
-                }
-
-                return render(request, 'users/testimony_detail.html', context)
-        except:
-            return render(request, 'users/errors.html')
-
-    else:
-        form = TestimonyForm()
-    return render(request, 'users/testimony_form.html', {'form': form, 'user': user})
-
-'''
 
 
 # prayer request form
@@ -280,34 +160,6 @@ def prayer_request(request):
         return render(request, 'users/prayer_request_detail.html', context)
     return render(request, 'users/prayer_request_form.html', {'user': user})
 
-'''
-@login_required
-def prayer_request(request):
-    user = request.user
-    if request.method == 'POST':
-        form = PrayerRequestForm(request.POST)
-
-        try:
-            if form.is_valid():
-                myform = form.save(commit=False)
-                myform.user = request.user
-                myform.save()
-
-                context = {
-                    'user': request.user,
-                    'prayer_points': form.cleaned_data['prayer_points']
-                }
-
-                return render(request, 'users/prayer_request_detail.html', context)
-        except:
-            return render(request, 'users/errors.html')
-
-    else:
-        form = TestimonyForm()
-    return render(request, 'users/prayer_request_form.html', {'form': form, 'user': user})
-
-'''
-
 
 # update user profile
 @login_required
@@ -323,17 +175,22 @@ def update_user(request):
         marital_status = request.POST['marital_status']
         address = request.POST['address']
         phone_number = request.POST['phone_number']
-        reg_date = request.POST['date']
-        photo = None
-        date_of_birth = None
-        try:
-            date_of_birth = request.POST['date_of_birth']
-            photo = request.FILES['photo']
-        except:
-            pass
-        #picture = request.FILES['picture']
+        reg_date = request.POST['date_of_birth']
+        updated_date = request.POST['dob']
         favourite_bible_verse = request.POST['favourite_bible_verse']
         about_me = request.POST['about_me']
+        y = user.photo
+        photo = None
+
+        try:
+            if request.FILES['photo']:
+                photo = request.FILES['photo']
+        except:
+            photo = None
+
+        # change date format to yyyy-mm-dd
+        x = user.date_of_birth
+        reg = x.strftime('%Y-%m-%d')
 
         user.first_name = first_name
         user.last_name = last_name
@@ -344,15 +201,19 @@ def update_user(request):
         user.marital_status = marital_status
         user.address = address
         user.phone_number = phone_number
-        if date_of_birth:
-            user.date_of_birth = user.date_of_birth
-        else:
-            user.date_of_birth = date_of_birth
 
-        if photo:
-            user.photo = user.photo
+        if not updated_date:
+            user.date_of_birth = reg
+        elif reg_date == updated_date:
+            user.date_of_birth = reg
+        else:
+            user.date_of_birth = updated_date
+
+        if photo is None:
+            user.photo = y
         else:
             user.photo = photo
+
         user.favourite_bible_verse = favourite_bible_verse
         user.about_me = about_me
         user.save()
@@ -361,25 +222,6 @@ def update_user(request):
         'user': user
     }
     return render(request, 'users/update_user_profile.html', context)
-
-'''
-@login_required
-def update_user(request):
-    obj = get_object_or_404(User, id=request.user.id)
-    form = UserUpdateForm(request.POST or None, request.FILES or None, instance=obj)
-
-    try:
-        if form.is_valid():
-            form.save(commit=True)
-            user = User.objects.get(username=request.user.username)
-            return render(request, 'users/user_profile.html', {'user': user})
-
-    except:
-        return render(request, 'users/errors.html')
-
-    return render(request, 'users/update_user_profile.html', {'form': form})
-
-'''
 
 
 def about_us(request):

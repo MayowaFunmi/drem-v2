@@ -47,7 +47,7 @@
                         </div>
                         <div class="blog_meta">
                             <ul>
-                                <li>By <a href="{% url 'users:user_profile' %}">{{ post.author }}</a></li>
+                                <li>By <a href="{% url 'users:user_profile' post.author.id %}">{{ post.author }}</a></li>
                                 {% for category in post.categories.all %}
                                 <li>In
                                     <a href="{% url 'blog:blog_category' category.name %}">
@@ -113,7 +113,7 @@
                             <li>
                                 <div class="blog_meta">
                                     <ul>
-                                        <li>Comment {{ forloop.revcounter }} By <a href="{% url 'users:user_profile' %}">{{ comment.author }}</a></li>
+                                        <li>Comment {{ forloop.revcounter }} By <a href="{% url 'users:user_profile' comment.author.id %}">{{ comment.author }}</a></li>
                                         <li> On {{ comment.date }}</li>
                                     </ul>
                                 </div>
@@ -163,7 +163,7 @@
                         {% endif %}
                     {% else %}
                         <button class="contact_button trans_200">
-                            <a href="{% url 'users:login' %}?next={{request.path}}">Please Log in to add a comment!</a>
+                            <a href="{% url 'users:login' %}?next={{request.path}}" style="color: white;">Please Log in to add a comment!</a>
                         </button>
                     {% endif %}
                 </div>
@@ -182,14 +182,4 @@
 <script>eval(mod_pagespeed_w2$JNY6$Cn);</script>
 <script>eval(mod_pagespeed_OT2DLOXnSB);</script>
 <script>eval(mod_pagespeed_yeMiaDyUpM);</script>
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-23581568-13');
-</script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"rayId":"6a0b090f0d171e71","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'></script>
 {% endblock blog_script %}

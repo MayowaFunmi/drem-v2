@@ -12508,7 +12508,7 @@ a.text-dark:hover {
   top: 50%;
   margin-left: -40px;
   margin-top: -40px;
-  background: url(plugins/OwlCarousel2-2.2.1/xowl.video.play.png.pagespeed.ic.lCj6X_WT9C.webp) no-repeat;
+  /*background: url(plugins/OwlCarousel2-2.2.1/xowl.video.play.png.pagespeed.ic.lCj6X_WT9C.webp) no-repeat;*/
   cursor: pointer;
   z-index: 1;
   -webkit-backface-visibility: hidden;

@@ -30,10 +30,10 @@
                         <div class="event_timer">
                             <ul class="timer">
                                 <li class="d-inline-flex">
-                                    {% if user.is_authenticated and user.is_staff %}
-                                        <div>You are logged in as <strong>{{ user.username }} (Admin)</strong></div>
-                                    {% elif user.is_authenticated and not user.is_staff %}
-                                        <div>You are logged in as <strong>{{ user.username }}</strong></div>
+                                    {% if request.user.is_authenticated and request.user.is_staff %}
+                                        <div>You are logged in as <strong>{{ request.user.username }} (Admin)</strong></div>
+                                    {% elif request.user.is_authenticated and not request.user.is_staff %}
+                                        <div>You are logged in as <strong>{{ request.user.username }}</strong></div>
                                     {% else %}
                                         <div>You are logged out!!!</div>
                                     {% endif %}
@@ -71,14 +71,13 @@
                                         <li><a href="{% url 'blog:post_list' %}">Blog</a></li>
                                         <li><a href="{% url 'blog:post_new' %}">{% block blog_new %}{% endblock blog_new %}</a></li>
                                         <li><a href="{% url 'school:sbi_home' %}">Bible Institute</a></li>
-                                        <li><a href="#">About</a></li>
                                         <li><a href="{% url 'users:contact_us' %}">Contact Us</a></li>
-                                        {% if user.is_authenticated and not user.is_staff %}
-                                            <li><a href="{% url 'users:user_profile' %}">Profile</a></li>
+                                        {% if request.user.is_authenticated and not request.user.is_staff %}
+                                            <li><a href="{% url 'users:user_profile' request.user.id %}">Profile</a></li>
                                             <li><a href="#">Change Password</a></li>
                                             <li><a href="{% url 'users:logout' %}">Logout</a></li>
-                                        {% elif user.is_authenticated and user.is_staff %}
-                                            <li><a href="{% url 'users:user_profile' %}">Profile</a></li>
+                                        {% elif request.user.is_authenticated and request.user.is_staff %}
+                                            <li><a href="{% url 'users:user_profile' request.user.id %}">Profile</a></li>
                                             <li><a href="#">Change Password</a></li>
                                             <li><a href="{% url 'quiz:all_questions' %}">Quiz Section</a></li>
                                             <li><a href="{% url 'awards:list_awards' %}">Awards</a></li>
@@ -112,14 +111,13 @@
                     <li><a href="{% url 'blog:post_list' %}">Blog</a></li>
                     <li><a href="{% url 'blog:post_new' %}">{% block blog_new1 %}{% endblock blog_new1 %}</a></li>
                     <li><a href="{% url 'school:sbi_home' %}">Bible Institute</a></li>
-                    <li><a href="#">About</a></li>
                     <li><a href="{% url 'users:contact_us' %}">Contact Us</a></li>
-                    {% if user.is_authenticated and not user.is_staff %}
-                        <li><a href="{% url 'users:user_profile' %}">Profile</a></li>
+                    {% if request.user.is_authenticated and not request.user.is_staff %}
+                        <li><a href="{% url 'users:user_profile' request.user.id %}">Profile</a></li>
                         <li><a href="#">Change Password</a></li>
                         <li><a href="{% url 'users:logout' %}">Logout</a></li>
-                    {% elif user.is_authenticated and user.is_staff %}
-                        <li><a href="{% url 'users:user_profile' %}">Profile</a></li>
+                    {% elif request.user.is_authenticated and request.user.is_staff %}
+                        <li><a href="{% url 'users:user_profile' request.user.id %}">Profile</a></li>
                         <li><a href="#">Change Password</a></li>
                         <li><a href="{% url 'quiz:all_questions' %}">Quiz Section</a></li>
                     <li><a href="{% url 'awards:list_awards' %}">Awards</a></li>
@@ -150,7 +148,7 @@
                       </div>
                       <h2 style="color: white; font-weight: 600;">DESTINY RESCUE MISSION (DREM) INTERNATIONAL</h2>
                       <p style="color: red; font-weight: 600">...Who so run to Christ shall be saved!!!</p>
-                    <div class="button home_slider_button"><a href="#">About Us</a></div>
+                    <div class="button home_slider_button"><a href="{% url 'users:convener' %}">About Us</a></div>
                 </div>
             </div>
         </div>
@@ -227,7 +225,7 @@
               <div class="services_image"><img
                   src="{% static 'img/services_1.png' %}"
                   alt=""></div>
-              <div class="services_title"><a href="{% url 'users:testimony' %}">Testimonies</a></div>
+              <div class="services_title"><a href="{% url 'users:testimony' %}" style="color: white;">Testimonies</a></div>
             </div>
           </div>
 
@@ -236,7 +234,7 @@
               <div class="services_image"><img
                   src="{% static 'img/services_2.png' %}"
                   alt=""></div>
-                <div class="services_title"><a href="{% url 'blog:post_list' %}">Believers' Forum</a></div>
+                <div class="services_title"><a href="{% url 'blog:post_list' %}" style="color: white;">Believers' Forum</a></div>
             </div>
           </div>
 
@@ -245,7 +243,7 @@
               <div class="services_image"><img
                   src="{% static 'img/services_3.png' %}"
                   alt=""></div>
-                <div class="services_title"><a href="{% url 'awards:list_awards' %}">Awards</a></div>
+                <div class="services_title"><a href="{% url 'awards:list_awards' %}" style="color: white;">Awards</a></div>
             </div>
           </div>
 
@@ -254,16 +252,7 @@
               <div class="services_image"><img
                   src="{% static 'img/services_4.png' %}"
                   alt=""></div>
-              <div class="services_title"><a href="{% url 'quiz:welcome' %}">Bible Quiz</a></div>
-            </div>
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-sm-6">
-            <div class="services_item text-center">
-              <div class="services_image"><img
-                  src="{% static 'img/services_5.png' %}"
-                  alt=""></div>
-              <div class="services_title">Daily Devotional</div>
+              <div class="services_title"><a href="{% url 'quiz:welcome' %}" style="color: white;">Bible Quiz</a></div>
             </div>
           </div>
 
@@ -272,73 +261,40 @@
               <div class="services_image"><img
                   src="{% static 'img/services_6.png' %}"
                   alt=""></div>
-                <div class="services_title"><a href="{% url 'users:prayer_request' %}">Prayer Request</a></div>
+                <div class="services_title"><a href="{% url 'users:prayer_request' %}" style="color: white;">Prayer Request</a></div>
             </div>
           </div>
         </div>
       </div>
     </div>
 {% endblock quiz %}
-<footer class="footer">
+<footer class="footer" id="contact_us">
     <div class="container">
         <div class="row">
-
-            <div class="col-lg-4 footer_col">
-
-                <div class="logo_container">
-                    <div class="logo">
-                        <a href="#">
-                            <span>Believe</span>
-                            <img
-                                    src="data:image/webp;base64,UklGRnABAABXRUJQVlA4IGQBAAAwCQCdASo1ADUAPm0skkWkIqGY/jQAQAbEsQBoCtdfc4wG4Y3iX9gOBU8kAC51m2WVTQgXO5fDVwZJSg7mumZ9paqemjQiJwa6WEJvBUyZTTAAAP4MX8c8Dj3cGkuNWztD8W9betp4Ml7/2ln/9Sz/+pZ/W1cLK5U+YpCnW3ncAE0fMlvvJ7/EHj7U/ud/oCDdlnKv0SLJKdNLUTJUJSZ3sHva0cyNQzO7/m4ZRuwccCuX97DOStDqqLVdQZmnx7L6CFRRecfhzqX9ISJ7n7muFR+AiR6BP8E54FfwMab0iQ6cWBb+smHDeJkeincBrz4miMY7AgGCCfpA4dphL+Tq/Xq2zOn8yizmwTI8c66yp1aQJ8pBfAKk2pYmyP72To4CjtKmXsEWCSJQicdnuYiQgUlP1gm815UKI+LlI/vn/3xSjZ4/zK/tcslrKHOqz7WqsePXh+6fforpRQJ9EiFrAAAAAA=="
-                                    alt="">
-                        </a>
-                    </div>
-                    <div class="logo_subtitle">Church template</div>
-                </div>
+            <div class="col-lg-6">
+                <div class="footer_title">Social Media Links</div>
                 <div class="footer_social">
                     <ul>
-                        <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="https://t.me/destinyrescuemissionintl2020/" target="_blank"><i class="fa fa-telegram" aria-hidden="true"></i></a></li>
+                        <li><a href="https://chat.whatsapp.com/IJBWWC8cjzV8HQzUYGvyED/" target="_blank"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+                        <li><a href="https://m.facebook.com/Destiny-Rescue-Mission-intl-DREM-1618195011840282/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                         <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                     </ul>
                 </div>
             </div>
 
-            <div class="col-lg-4 footer_col">
-                <div class="footer_links">
-                    <div class="footer_title">Useful Links</div>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="#">Donations</a></li>
-                        <li><a href="sermons.html">Sermons</a></li>
-                        <li><a href="#">Causes</a></li>
-                        <li><a href="#">Quotes</a></li>
-                        <li><a href="blog.html">News</a></li>
-                        <li><a href="#">Event List</a></li>
-                        <li><a href="ministries.html">Ministries</a></li>
-                        <li><a href="#">Priests</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="col-lg-3 footer_col">
+            <div class="col-lg-6 footer_col">
+                <div class="footer_title">Contact Us</div>
                 <div class="footer_contact">
-                    <div class="footer_title">Contact Us</div>
                     <ul>
-                        <li><span>Address: </span>1481 Creekside Lane Avila Beach, CA 93424</li>
-                        <li class="footer_contact_phone">
-                            <span>Phone: </span>
-                            <div>
-                                <div> +53 345 7953 32453</div>
-                                <div> +53 345 7557 822112</div>
-                            </div>
-                        </li>
-                        <li><span>Email: </span><a></a>
-                        </li>
-                    </ul>
+                <li class="footer_contact_phone">
+                  <span>Phone: </span>
+                  <div>
+                    <div> +2347067848348, +2348068565281, +2349055860342</div>
+                  </div>
+                </li>
+                <li><span>Email: </span><a>destinyrescuemissionintl@gmail.com</a>
+              </ul>
                 </div>
             </div>
         </div>
@@ -347,8 +303,7 @@
     <div class="copyright text-center">
         Copyright &copy;
         <script>document.write(new Date().getFullYear());</script>
-        All rights reserved | This website is designed and developed <i
-            class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://affabledigitalservices.herokapp.com" target="_blank">Akinade Mayowa</a>
+        All rights reserved | This website is designed and developed by <a href="https://affabledigitalservices.herokapp.com" target="_blank">Akinade Mayowa</a>
 
     </div>
 </footer>
@@ -364,19 +319,6 @@
 <script>eval(mod_pagespeed_w2$JNY6$Cn);</script>
 <script>eval(mod_pagespeed_OT2DLOXnSB);</script>
 <script>eval(mod_pagespeed_SvzwlsPWZP);</script>
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'UA-23581568-13');
-
-
-</script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js"
-        data-cf-beacon='{"rayId":"69b4ecd13cf66b44","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'></script>
 {% endblock script %}
 {% endblock blog_script %}
 </body>

@@ -1131,7 +1131,7 @@ section {
 .footer {
     width: 100%;
     background: #161619;
-    padding-top: 88px
+    padding-top: 10px
 }
 
 .footer .logo a span {
@@ -1157,7 +1157,7 @@ section {
 }
 
 .footer_social {
-    margin-top: 45px;
+    margin-top: 10px;
     padding-left: 4px
 }
 
@@ -1235,11 +1235,11 @@ section {
 
 .footer_contact {
     width: 100%;
-    padding-top: 35px
+    padding-top: 20px
 }
 
 .footer_contact ul {
-    margin-top: 42px
+    margin-top: 15px
 }
 
 .footer_contact ul li {
@@ -1275,7 +1275,7 @@ section {
     font-size: 12px;
     font-weight: 600;
     line-height: 84px;
-    margin-top: 75px
+    margin-top: 20px
 }
 
 @charset "utf-8";

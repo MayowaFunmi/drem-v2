@@ -14,32 +14,37 @@
     <div class="new_page container">
         <div class="contact_form_section">
             <div class="container">
-                <div class="row">
+                <center>
                     <h2>All Quiz Questions Available</h2>
-                    <div class="col">
-                        {% for question in questions %}
-                            <div class="row">
-                                <p>
-                                    Question {{ question.id }}). {{ question.question }}<br>
-                                    A: {{ question.option1 }}<br>
-                                    B: {{ question.option2 }}<br>
-                                    C: {{ question.option3 }}<br>
-                                    D: {{ question.option4 }}<br>
-                                    Answer: {{ question.answer }}<br>
-                                </p>
-                            </div>
-                            <div class="col-md-6">
-                                <button class=" button contact_button trans_200">
-                                    <a href="{% url 'quiz:delete_question' question.id %}">DELETE</a>
-                                </button>
-                            </div>
-                        {% endfor %}
+                    <button class=" button contact_button trans_200">
+                        <a href="{% url 'quiz:add_quiz' %}">ADD QUESTION</a>
+                    </button>
+                </center>
+                {% for question in questions %}
+                <div class="row">
+                    <div class="col-lg-8">
+                        <p>
+                            Question {{ question.id }}). {{ question.question }}<br>
+                            A: {{ question.option1 }}<br>
+                            B: {{ question.option2 }}<br>
+                            C: {{ question.option3 }}<br>
+                            D: {{ question.option4 }}<br>
+                            Answer: {{ question.answer }}<br>
+                        </p>
                     </div>
-                    <div class="col-md-6">
+
+                    <div class="col-lg-4">
                         <button class=" button contact_button trans_200">
-                            <a href="{% url 'quiz:add_quiz' %}">ADD QUESTION</a>
+                            <a href="{% url 'quiz:delete_question' question.id %}">DELETE</a>
                         </button>
                     </div>
+                </div>
+                <hr>
+                {% endfor %}
+                <div class="row">
+                    <button class=" button contact_button trans_200">
+                        <a href="{% url 'quiz:add_quiz' %}">ADD QUESTION</a>
+                    </button>
                 </div>
             </div>
         </div>
